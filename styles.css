@@ -1,0 +1,78 @@
+:root{
+  --event-bg: rgba(255,193,7,0.18);
+  --event-hover: rgba(255,193,7,0.32);
+  --today-bg: #0d6efd;
+}
+
+/* Calendar cell basics */
+table.table td {
+  height: 90px;
+  vertical-align: top;
+  position: relative;
+  transition: background-color .18s ease, transform .12s ease;
+  padding: 6px;
+}
+
+/* Circle for date number */
+table.table td .date-num {
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:6px;
+  font-weight:600;
+}
+
+/* Today */
+table.table td.today {
+  background: linear-gradient(135deg, rgba(13,110,253,0.12), rgba(13,110,253,0.06));
+}
+table.table td.today .date-num {
+  background: var(--today-bg);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(13,110,253,0.18);
+}
+
+/* Event day styling */
+table.table td.event-day {
+  background: var(--event-bg);
+  cursor: pointer;
+}
+table.table td.event-day:hover {
+  background: var(--event-hover);
+  transform: translateY(-2px);
+}
+
+/* small event chip inside day */
+.event-chip {
+  display:block;
+  margin-top:6px;
+  padding:3px 6px;
+  border-radius:10px;
+  font-size:12px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  background: rgba(13,110,253,0.08);
+  color: #0d6efd;
+  border:1px solid rgba(13,110,253,0.06);
+}
+
+/* Notifications */
+#notificationPanel .list-group-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.badge-date { font-size: .75rem; }
+
+/* Preview box */
+#eventPreview {
+  min-height:56px;
+  border-radius:6px;
+  background: #f8f9fa;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+  table.table td { height: 70px; font-size: 13px; }
+  .event-chip { font-size:11px; }
+}
