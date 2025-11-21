@@ -1,0 +1,328 @@
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: #f9fafb; /* gray-50 */
+  color: #1f2937; /* gray-800 */
+  scroll-behavior: smooth;
+  line-height: 1.5;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #10b981; /* emerald-600 */
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+header a.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+header nav.desktop-nav {
+  display: none;
+  gap: 2rem;
+}
+
+header nav.desktop-nav a {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+header button#menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+#mobile-menu {
+  display: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+#mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  header nav.desktop-nav {
+    display: flex;
+  }
+  header button#menu-btn {
+    display: none;
+  }
+  #mobile-menu {
+    display: none !important;
+  }
+}
+
+/* Hero */
+#home {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+}
+
+.hero-content p {
+  font-size: 1.125rem;
+  max-width: 48rem;
+  margin: 0 auto 2rem auto;
+}
+
+.hero-content a {
+  display: inline-block;
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  background-color: #10b981;
+  color: white;
+  transition: all 0.2s;
+}
+
+.hero-content a:hover {
+  background-color: #059669;
+  transform: scale(1.05);
+}
+
+/* Sections */
+section {
+  padding: 5rem 1.5rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+section p {
+  color: #4b5563;
+}
+
+/* About Section */
+#about {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+#about img {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* Services Section */
+#services {
+  background-color: #f9fafb;
+  text-align: center;
+}
+
+#services .services-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  #about {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #services .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.service-card:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.service-card svg {
+  width: 3rem;
+  height: 3rem;
+  color: #10b981;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: #4b5563;
+}
+
+/* Team Section */
+#team {
+  text-align: center;
+}
+
+#team .team-grid {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  #team .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  #team .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.team-member img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 9999px;
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+  border: 4px solid white;
+}
+
+.team-member h3 {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.team-member p {
+  color: #10b981;
+  font-weight: 500;
+}
+
+/* Contact Section */
+#contact form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#contact input,
+#contact textarea {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+#contact button {
+  background-color: #10b981;
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#contact button:hover {
+  background-color: #059669;
+}
+
+/* Footer */
+footer {
+  background-color: #1f2937;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* Utility classes */
+.hidden {
+  display: none;
+}
+
+.icon {
+  font-size: 30px;
+  color: rgb(7, 150, 76);
+}

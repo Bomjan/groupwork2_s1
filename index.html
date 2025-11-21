@@ -1,90 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>InnovateGreen AI - Sustainable AI Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="#">InnovateGreen AI</a>
 
-  <body class="bg-gray-50 text-gray-800 antialiased">
-    <!-- HEADER -->
-    <header
-      class="fixed top-0 left-0 right-0 bg-white/90 shadow-sm backdrop-blur-sm z-50"
-    >
-      <div
-        class="container mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <a href="#" class="text-2xl font-bold text-emerald-600">
-          InnovateGreen AI
-        </a>
-
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex space-x-8">
-          <a
-            href="#about"
-            class="text-gray-600 hover:text-emerald-600 font-medium"
-            >About</a
-          >
-          <a
-            href="#services"
-            class="text-gray-600 hover:text-emerald-600 font-medium"
-            >Services</a
-          >
-          <a
-            href="#team"
-            class="text-gray-600 hover:text-emerald-600 font-medium"
-            >Team</a
-          >
-          <a
-            href="./form.html"
-            class="text-gray-600 hover:text-emerald-600 font-medium"
-            >Contact</a
-          >
+        <nav class="desktop-nav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="./form.html">Contact</a>
         </nav>
 
-        <!-- Mobile Button -->
-        <button id="menu-btn" class="md:hidden text-gray-600">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+        <button id="menu-btn">
+          <svg viewBox="0 0 24 24" width="24" height="24">
             <path
               id="menu-icon"
+              d="M4 6h16M4 12h16m-7 6h7"
+              stroke="currentColor"
+              stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
             />
           </svg>
         </button>
       </div>
 
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-        <nav class="flex flex-col items-center space-y-4 py-4">
-          <a
-            href="#about"
-            class="text-gray-600 hover:text-emerald-600 font-medium"
-            >About</a
-          >
-          <a
-            href="#services"
-            class="text-gray-600 hover:text-emerald-600 font-medium"
-            >Services</a
-          >
-          <a
-            href="#team"
-            class="text-gray-600 hover:text-emerald-600 font-medium"
-            >Team</a
-          >
-          <a
-            href="./Login.html"
-            class="text-gray-600 hover:text-emerald-600 font-medium"
-            >Contact</a
-          >
+      <div id="mobile-menu">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="./Login.html">Contact</a>
         </nav>
       </div>
     </header>
@@ -92,259 +50,137 @@
     <!-- HERO -->
     <section
       id="home"
-      class="h-screen bg-cover bg-center flex items-center justify-center text-white relative"
       style="
         background-image: url('https://picsum.photos/1920/1080?grayscale&blur=2');
       "
     >
-      <div class="absolute inset-0 bg-black opacity-50"></div>
-
-      <div class="relative z-10 text-center px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-          Powering a Greener Future with Intelligent Solutions
-        </h1>
-        <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Powering a Greener Future with Intelligent Solutions</h1>
+        <p>
           At InnovateGreen AI, we harness the power of artificial intelligence
           to create sustainable technologies that benefit both businesses and
           our planet.
         </p>
-        <a
-          href="#about"
-          class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform hover:scale-105"
-        >
-          Discover Our Mission
-        </a>
+        <a href="#about">Discover Our Mission</a>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="py-20 bg-white">
-      <div
-        class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
-      >
-        <img
-          src="https://picsum.photos/800/600?random=10"
-          alt="Sustainable Technology"
-          class="rounded-lg shadow-2xl w-full"
-        />
-
-        <div>
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">
-            Our Vision for a Sustainable World
-          </h2>
-          <p class="text-gray-600 mb-4">
-            InnovateGreen AI was founded on the belief that progress and
-            environmental responsibility can thrive together. Our mission is to
-            develop AI solutions that promote sustainability and resource
-            efficiency.
-          </p>
-          <p class="text-gray-600">
-            We envision industries powered by clean energy, minimal waste, and
-            intelligent systems. By making sustainability profitable, we strive
-            to accelerate a global transition to a greener economy.
-          </p>
-        </div>
+    <section id="about">
+      <img
+        src="https://picsum.photos/800/600?random=10"
+        alt="Sustainable Technology"
+      />
+      <div>
+        <h2>Our Vision for a Sustainable World</h2>
+        <p>
+          InnovateGreen AI was founded on the belief that progress and
+          environmental responsibility can thrive together. Our mission is to
+          develop AI solutions that promote sustainability and resource
+          efficiency.
+        </p>
+        <p>
+          We envision industries powered by clean energy, minimal waste, and
+          intelligent systems. By making sustainability profitable, we strive to
+          accelerate a global transition to a greener economy.
+        </p>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-6 text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-800">What We Do</h2>
-        <p class="text-gray-600 mt-2">
-          Innovative AI services for sustainable impact.
-        </p>
-      </div>
+    <section id="services">
+      <h2>What We Do</h2>
+      <p>Innovative AI services for sustainable impact.</p>
 
-      <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <div class="services-grid">
         <!-- Card 1 -->
-        <div
-          class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition"
-        >
-          <svg
-            class="h-12 w-12 text-emerald-500 mb-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            />
-          </svg>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">
-            AI-Powered Analytics
-          </h3>
-          <p class="text-gray-600">
+        <div class="service-card">
+          <i class="fa-solid fa-computer icon"></i>
+          <h3>AI-Powered Analytics</h3>
+          <p>
             Convert data into actionable insights that accelerate sustainable
             growth.
           </p>
         </div>
 
         <!-- Card 2 -->
-        <div
-          class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition"
-        >
-          <svg
-            class="h-12 w-12 text-emerald-500 mb-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m12 0a2 2 0 100-4m0 4a2 2 0 110-4m-6 0a2 2 0 100-4m0 4a2 2 0 110-4"
-            />
-          </svg>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">
-            Machine Learning Models
-          </h3>
-          <p class="text-gray-600">
+        <div class="service-card">
+          <i class="fa-solid fa-robot icon"></i>
+          <h3>Machine Learning Models</h3>
+          <p>
             Custom models optimized for performance and environmental impact.
           </p>
         </div>
 
         <!-- Card 3 -->
-        <div
-          class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition"
-        >
-          <svg
-            class="h-12 w-12 text-emerald-500 mb-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M13 10V3L4 14h7v7l9-11h-7z"
-            />
-          </svg>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">
-            Energy Optimization
-          </h3>
-          <p class="text-gray-600">
-            AI-driven solutions that reduce energy consumption and cost.
-          </p>
+        <div class="service-card">
+          <i class="fa-solid fa-bolt icon"></i>
+          <h3>Energy Optimization</h3>
+          <p>AI-driven solutions that reduce energy consumption and cost.</p>
         </div>
       </div>
     </section>
 
     <!-- TEAM -->
-    <section id="team" class="py-20 bg-white">
-      <div class="container mx-auto px-6 text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-800">Meet Our Team</h2>
-        <p class="text-gray-600 mt-2">
-          The brilliant minds behind our innovative solutions.
-        </p>
-      </div>
+    <section id="team">
+      <h2>Meet Our Team</h2>
+      <p>The brilliant minds behind our innovative solutions.</p>
 
-      <div
-        class="container mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10"
-      >
-        <!-- Members -->
-        <div class="text-center">
+      <div class="team-grid">
+        <div class="team-member">
           <img
             src="https://picsum.photos/400/400?random=1"
-            class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg border-4 border-white"
+            alt="Dr. Evelyn Reed"
           />
-          <h3 class="text-xl font-bold text-gray-800">Dr. Evelyn Reed</h3>
-          <p class="text-emerald-600 font-medium">CEO & Founder</p>
+          <h3>Dr. Evelyn Reed</h3>
+          <p>CEO & Founder</p>
         </div>
 
-        <div class="text-center">
-          <img
-            src="https://picsum.photos/400/400?random=2"
-            class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg border-4 border-white"
-          />
-          <h3 class="text-xl font-bold text-gray-800">Marcus Chen</h3>
-          <p class="text-emerald-600 font-medium">Head of AI Research</p>
+        <div class="team-member">
+          <img src="https://picsum.photos/400/400?random=2" alt="Marcus Chen" />
+          <h3>Marcus Chen</h3>
+          <p>Head of AI Research</p>
         </div>
 
-        <div class="text-center">
-          <img
-            src="https://picsum.photos/400/400?random=3"
-            class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg border-4 border-white"
-          />
-          <h3 class="text-xl font-bold text-gray-800">Aisha Khan</h3>
-          <p class="text-emerald-600 font-medium">
-            Lead Sustainability Officer
-          </p>
+        <div class="team-member">
+          <img src="https://picsum.photos/400/400?random=3" alt="Aisha Khan" />
+          <h3>Aisha Khan</h3>
+          <p>Lead Sustainability Officer</p>
         </div>
 
-        <div class="text-center">
+        <div class="team-member">
           <img
             src="https://picsum.photos/400/400?random=4"
-            class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg border-4 border-white"
+            alt="David Miller"
           />
-          <h3 class="text-xl font-bold text-gray-800">David Miller</h3>
-          <p class="text-emerald-600 font-medium">VP of Engineering</p>
+          <h3>David Miller</h3>
+          <p>VP of Engineering</p>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-6 text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-800">Get In Touch</h2>
-        <p class="text-gray-600 mt-2">
-          We'd love to hear from you. Let's build a greener future together.
-        </p>
-      </div>
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <p>We'd love to hear from you. Let's build a greener future together.</p>
 
-      <div class="max-w-2xl mx-auto px-6">
-        <form
-          class="bg-white p-8 rounded-lg shadow-lg space-y-6"
-          id="contactForm"
-        >
-          <div>
-            <label class="block text-gray-700 font-medium mb-2">Name</label>
-            <input
-              type="text"
-              name="name"
-              class="w-full px-4 py-2 border rounded-md"
-              required
-            />
-          </div>
+      <form id="contactForm">
+        <label>Name</label>
+        <input type="text" name="name" required />
 
-          <div>
-            <label class="block text-gray-700 font-medium mb-2">Email</label>
-            <input
-              type="email"
-              name="email"
-              class="w-full px-4 py-2 border rounded-md"
-              required
-            />
-          </div>
+        <label>Email</label>
+        <input type="email" name="email" required />
 
-          <div>
-            <label class="block text-gray-700 font-medium mb-2">Message</label>
-            <textarea
-              name="message"
-              rows="5"
-              class="w-full px-4 py-2 border rounded-md"
-              required
-            ></textarea>
-          </div>
+        <label>Message</label>
+        <textarea name="message" rows="5" required></textarea>
 
-          <div class="text-center">
-            <button
-              class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-full text-lg"
-            >
-              Send Message
-            </button>
-          </div>
-        </form>
-      </div>
+        <button type="submit">Send Message</button>
+      </form>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-800 text-white py-6 text-center">
+    <footer>
       <p>
         &copy; <span id="year"></span> InnovateGreen AI. All Rights Reserved.
       </p>
@@ -352,7 +188,7 @@
 
     <!-- JS -->
     <script>
-      // mobile menu toggle
+      // Mobile menu toggle
       const btn = document.getElementById("menu-btn");
       const menu = document.getElementById("mobile-menu");
       const icon = document.getElementById("menu-icon");
@@ -367,10 +203,10 @@
         );
       });
 
-      // footer year
+      // Footer year
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // contact form
+      // Contact form
       document
         .getElementById("contactForm")
         .addEventListener("submit", function (e) {
