@@ -17,7 +17,7 @@ body {
     rgb(0, 110, 255),
     rgb(0, 128, 60)
   ); */
-  background-image: url(background-image.jpg);
+  background-image: url(/assets/background-image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: serif, sans-serif;
@@ -52,7 +52,7 @@ body {
   width: 495px;
   height: 500px;
   /* background-color: rgba(255, 145, 0, 0.575); */
-  background-image: url(log.webp);
+  background-image: url(/assets/reg.webp);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: serif, sans-serif;
@@ -74,7 +74,7 @@ body {
   align-items: center;
   border-radius: 10px;
   color: rgb(255, 255, 255);
-  background-image: url(reg.webp);
+  background-image: url(/assets/log.webp);
   background-repeat: no-repeat;
   background-size: cover;
   /* opacity: 0.8; */
