@@ -326,3 +326,8 @@ footer {
   font-size: 30px;
   color: rgb(7, 150, 76);
 }
+
+#success {
+  font-size: 1.5rem;
+  color: rgb(7, 122, 50);
+}

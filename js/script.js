@@ -11,6 +11,12 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   };
   console.log(data);
   this.reset();
+  $("success").textContent =
+    "Your message has been sent successfully, thank you for reaching us";
+
+  setTimeout(() => {
+    $("success").textContent = "";
+  }, 3000);
 });
 
 // Set current year in footer, always the correct year
