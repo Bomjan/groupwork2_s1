@@ -9,7 +9,9 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     email: $("email").value,
     message: $("message").value,
   };
-  console.log(data);
+
+  // You can do anything with this data bro
+  // console.log(data);
   this.reset();
   $("success").textContent =
     "Your message has been sent successfully, thank you for reaching us";
