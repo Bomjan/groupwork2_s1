@@ -100,8 +100,13 @@ header button#menu-btn {
   position: relative;
   color: white;
   text-align: center;
+  background-image: url("/assets/main-background.jpg");
 }
-
+@media (max-width: 768px) {
+  #home {
+    background-image: url("/assets/main-background2.jpg");
+  }
+}
 .hero-overlay {
   position: absolute;
   inset: 0;
