@@ -7,59 +7,97 @@
     <link rel="stylesheet" href="/styles/form.css" />
   </head>
   <body>
-    <div class="main-container">
+    <!-- LOGIN CONTAINER -->
+    <div class="main-container" id="loginContainer">
       <div class="login">
         <h2>Login</h2>
-        <form action="" method="get">
+        <form action="" method="get" id="login">
           <div>
-            <label for="">Email</label>
+            <label>Email</label>
             <br />
             <input type="email" placeholder="UserName" id="emailLogin" />
+            <p class="msgEmail"></p>
             <br />
-            <label for="">Password</label>
+            <label>Password</label>
             <br />
-            <input type="password" placeholder="Password" id="" />
+            <input type="password" placeholder="Password" id="passwordLogin" />
+            <p id="msgPassword"></p>
             <br />
           </div>
+
+          <p class="suggest">
+            Don't have an account?
+            <label class="radioInput"
+              ><input
+                type="radio"
+                name="switch"
+                id="registerRadio"
+                style="display: none"
+              />
+              Register</label
+            >
+          </p>
+
+          <button type="submit" id="loginbtn">Login</button>
         </form>
-        <p>don't have an account? <a href="">create one</a></p>
-        <button id="login">Login</button>
       </div>
+
       <div class="login-p2">
         <h1>Login Page</h1>
         <p>"Every day is a new opportunity to create something amazing"</p>
       </div>
     </div>
-    <div class="main-container">
+
+    <!-- REGISTER CONTAINER -->
+    <div class="main-container" id="registerContainer" style="display: none">
       <div class="register-page">
         <h1>Register Page</h1>
         <p>“Welcome aboard! Let’s get you set up.”</p>
       </div>
+
       <div class="register-p2">
         <h2>Register</h2>
-        <form action="" method="get">
+        <form action="" method="get" id="register">
           <div>
-            <label for="">Email</label>
+            <label>Email</label>
             <br />
-            <input type="email" placeholder="Email" id="" />
+            <input type="email" placeholder="Email" />
+            <p class="masEmail"></p>
             <br />
-            <label for="">UserName</label>
+            <label>UserName</label>
             <br />
-            <input type="text" placeholder="UserName" id="" />
+            <input type="text" placeholder="UserName" />
+            <p id="msgName"></p>
             <br />
-            <label for="">Password</label>
+            <label>Password</label>
             <br />
-            <input type="password" placeholder="Password" id="" />
+            <input type="password" placeholder="Password" />
+            <p class="msgPassword"></p>
             <br />
-            <label for="">Confirm Password</label>
+            <label>Confirm Password</label>
             <br />
-            <input type="password" placeholder="Confirm Password" id="" />
+            <input type="password" placeholder="Confirm Password" />
+            <p id="msgConfirm"></p>
           </div>
+
+          <p class="suggest">
+            Already have an account?
+            <label class="radioInput"
+              ><input
+                type="radio"
+                name="switch"
+                id="loginRadio"
+                style="display: none"
+              />
+              Login</label
+            >
+          </p>
+
+          <button id="registerbtn">Register</button>
         </form>
-        <p>already have an acount?<a href="">Login</a></p>
-        <button id="register">Register</button>
       </div>
     </div>
-    <script src="./index.js"></script>
+
+    <script src="./js/index.js"></script>
   </body>
 </html>
