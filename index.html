@@ -13,26 +13,18 @@
   <body>
     <header>
       <div class="container">
-        <a href="#">InnovateGreen AI</a>
+        <a href="/" class="logo">InnovateGreen AI</a>
 
         <nav class="desktop-nav">
           <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#team">Team</a>
           <a href="./form.html">Contact</a>
+          <a href="/admin/admin.html">admin</a>
         </nav>
 
         <button id="menu-btn">
-          <svg viewBox="0 0 24 24" width="24" height="24">
-            <path
-              id="menu-icon"
-              d="M4 6h16M4 12h16m-7 6h7"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          <i class="fa-solid fa-bars"></i>
         </button>
       </div>
 
@@ -42,16 +34,13 @@
           <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#team">Team</a>
-          <a href="./Login.html">Contact</a>
+          <a href="./form.html">Contact</a>
         </nav>
       </div>
     </header>
 
     <!-- HERO -->
-    <section
-      id="home"
-      style="background-image: url('/assets/main-background.jpg')"
-    >
+    <section id="home">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1>Powering a Greener Future with Intelligent Solutions</h1>
@@ -66,10 +55,7 @@
 
     <!-- ABOUT -->
     <section id="about">
-      <img
-        src="https://picsum.photos/800/600?random=10"
-        alt="Sustainable Technology"
-      />
+      <img src="/assets/box.jpg" alt="Sustainable Technology" />
       <div>
         <h2>Our Vision for a Sustainable World</h2>
         <p>
@@ -161,57 +147,32 @@
     <!-- CONTACT -->
     <section id="contact">
       <h2>Get In Touch</h2>
+      <p id="success"></p>
       <p>We'd love to hear from you. Let's build a greener future together.</p>
 
       <form id="contactForm">
-        <label>Name</label>
-        <input type="text" name="name" required />
+        <label for="name">Name</label>
+        <input type="text" name="name" required id="name" />
 
-        <label>Email</label>
-        <input type="email" name="email" required />
+        <label for="email">Email</label>
+        <input type="email" name="email" required id="email" />
 
-        <label>Message</label>
-        <textarea name="message" rows="5" required></textarea>
+        <label for="message">Message</label>
+        <textarea name="message" rows="5" required id="message"></textarea>
 
         <button type="submit">Send Message</button>
       </form>
     </section>
+    <div class="faq">
+      <a href="faq.html"><i class="fa-solid fa-question"></i></a>
+    </div>
 
-    <!-- FOOTER -->
     <footer>
       <p>
         &copy; <span id="year"></span> InnovateGreen AI. All Rights Reserved.
       </p>
     </footer>
 
-    <!-- JS -->
-    <script>
-      // Mobile menu toggle
-      const btn = document.getElementById("menu-btn");
-      const menu = document.getElementById("mobile-menu");
-      const icon = document.getElementById("menu-icon");
-
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-
-        const open = icon.getAttribute("d") === "M4 6h16M4 12h16m-7 6h7";
-        icon.setAttribute(
-          "d",
-          open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"
-        );
-      });
-
-      // Footer year
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      // Contact form
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          alert("Thank you! Your message has been received (simulation).");
-          this.reset();
-        });
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>
