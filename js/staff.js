@@ -1,6 +1,3 @@
-// app.js
-// Simple staff management demo — uses localStorage for persistence.
-
 (() => {
   // ----- helpers -----
   const $ = (sel) => document.querySelector(sel);

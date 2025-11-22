@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - InnovateGreen AI</title>
+    <link rel="stylesheet" href="/styles/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="profile-container">
+      <div class="profile-card">
+        <div class="profile-header">
+          <img
+            src="https://i.pravatar.cc/200"
+            alt="Profile Photo"
+            class="profile-photo"
+          />
+          <h2 id="userName">Alex Green</h2>
+          <p id="userRole">Software Engineer</p>
+        </div>
+
+        <div class="profile-body">
+          <h3>Personal Details</h3>
+          <div class="info-row">
+            <span><i class="fa-solid fa-envelope"></i>Email:</span>
+            <p id="userEmail">alex.green@example.com</p>
+          </div>
+
+          <div class="info-row">
+            <span><i class="fa-solid fa-phone"></i>Phone:</span>
+            <p id="userPhone">+975 12345678</p>
+          </div>
+
+          <div class="info-row">
+            <span><i class="fa-solid fa-location-dot"></i>Address:</span>
+            <p id="userAddress">Thimphu, Bhutan</p>
+          </div>
+
+          <div class="info-row">
+            <span><i class="fa-solid fa-star"></i>Department:</span>
+            <p id="userDepartment">AI Research & Innovation</p>
+          </div>
+        </div>
+
+        <button class="edit-btn" onclick="editProfile()">
+          <i class="fa-solid fa-pen-to-square"></i> Edit Profile
+        </button>
+      </div>
+    </div>
+
+    <script src="profile.js"></script>
+  </body>
+</html>
