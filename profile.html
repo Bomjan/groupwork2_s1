@@ -14,44 +14,58 @@
     <div class="profile-container">
       <div class="profile-card">
         <div class="profile-header">
-          <img
-            src="https://i.pravatar.cc/200"
-            alt="Profile Photo"
-            class="profile-photo"
-          />
-          <h2 id="userName">Alex Green</h2>
-          <p id="userRole">Software Engineer</p>
+          <div class="avatar-large" id="avatarLarge">A</div>
+          <h2 id="userName">Loading...</h2>
+          <p id="userRole">User</p>
         </div>
 
         <div class="profile-body">
           <h3>Personal Details</h3>
           <div class="info-row">
-            <span><i class="fa-solid fa-envelope"></i>Email:</span>
-            <p id="userEmail">alex.green@example.com</p>
+            <span
+              ><i class="fa fa-envelope" aria-hidden="true"></i> Email:</span
+            >
+            <p id="userEmail">—</p>
           </div>
 
           <div class="info-row">
-            <span><i class="fa-solid fa-phone"></i>Phone:</span>
-            <p id="userPhone">+975 12345678</p>
+            <span><i class="fa fa-phone" aria-hidden="true"></i> Phone:</span>
+            <p id="userPhone">—</p>
           </div>
 
           <div class="info-row">
-            <span><i class="fa-solid fa-location-dot"></i>Address:</span>
-            <p id="userAddress">Thimphu, Bhutan</p>
+            <span
+              ><i class="fa fa-map-marker" aria-hidden="true"></i>
+              Address:</span
+            >
+            <p id="userAddress">—</p>
           </div>
 
           <div class="info-row">
-            <span><i class="fa-solid fa-star"></i>Department:</span>
-            <p id="userDepartment">AI Research & Innovation</p>
+            <span
+              ><i class="fa fa-briefcase" aria-hidden="true"></i>
+              Department:</span
+            >
+            <p id="userDepartment">—</p>
+          </div>
+
+          <div class="info-row">
+            <span><i class="fa fa-id-badge" aria-hidden="true"></i> Role:</span>
+            <p id="userRoleDetail">—</p>
           </div>
         </div>
 
-        <button class="edit-btn" onclick="editProfile()">
-          <i class="fa-solid fa-pen-to-square"></i> Edit Profile
-        </button>
+        <div class="profile-actions">
+          <button class="edit-btn" id="editBtn">
+            <i class="fa fa-edit" aria-hidden="true"></i> Edit Profile
+          </button>
+          <button class="logout-btn" id="logoutBtn">
+            <i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout
+          </button>
+        </div>
       </div>
     </div>
 
-    <script src="profile.js"></script>
+    <script src="/js/profile.js"></script>
   </body>
 </html>
