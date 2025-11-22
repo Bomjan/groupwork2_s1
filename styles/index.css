@@ -45,7 +45,7 @@ header .container {
 header a.logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #10b981;
+  color: #0c9b6b;
 }
 
 header nav.desktop-nav {
@@ -100,8 +100,13 @@ header button#menu-btn {
   position: relative;
   color: white;
   text-align: center;
+  background-image: url("/assets/main-background.jpg");
 }
-
+@media (max-width: 768px) {
+  #home {
+    background-image: url("/assets/main-background2.jpg");
+  }
+}
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -244,6 +249,9 @@ section p {
   #team .team-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+  #contact form {
+    min-width: 40rem;
+  }
 }
 
 .team-member img {
@@ -277,7 +285,7 @@ section p {
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   max-width: 40rem;
-  min-width: 30rem;
+
   margin: 20px auto;
   display: flex;
   flex-direction: column;
@@ -322,4 +330,26 @@ footer {
 .icon {
   font-size: 30px;
   color: rgb(7, 150, 76);
+}
+
+#success {
+  font-size: 1.5rem;
+  color: rgb(7, 122, 50);
+}
+.faq {
+  position: fixed;
+  bottom: 110px;
+  right: 50px;
+  font-size: 25px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #20886e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.faq a {
+  text-decoration: none;
+  color: #dfebf8;
 }

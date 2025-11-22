@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - InnovateGreen AI</title>
+
+    <link rel="stylesheet" href="styles/faq.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <a href="/" class="logo">InnovateGreen AI</a>
+
+        <nav class="desktop-nav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="./form.html">Contact</a>
+          <a href="/admin/admin.html">admin</a>
+        </nav>
+
+        <button id="menu-btn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="./form.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <p class="subtitle">
+        Everything you need to know about our mission, services, and work.
+      </p>
+
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="question">
+            <span>What does InnovateGreen AI specialize in?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="answer">
+            We focus on developing environmentally conscious AI systems,
+            providing analytics, machine learning solutions, and energy
+            optimization frameworks designed to reduce environmental impact.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="question">
+            <span>How can AI help sustainability?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="answer">
+            AI can reduce waste, predict energy usage, automate recycling
+            processes, and optimize resource consumption across industries. It’s
+            a powerful tool for accelerating global green innovation.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="question">
+            <span>Do you offer custom machine learning models?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="answer">
+            Yes—our team builds custom ML models tailored to business needs.
+            Optimization is always done with sustainability in mind.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="question">
+            <span>Can small businesses work with InnovateGreen AI?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="answer">
+            Absolutely! We design scalable solutions suitable for startups,
+            medium companies, and large enterprises.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="question">
+            <span>Where is your team located?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="answer">
+            Our team works globally, with researchers and engineers from
+            multiple countries collaborating remotely.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <div class="question">
+            <span>How do I contact your team?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="answer">
+            You can reach us through the Contact page on our website, where you
+            can submit your message directly.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const items = document.querySelectorAll(".faq-item");
+
+      items.forEach((item) => {
+        item.querySelector(".question").addEventListener("click", () => {
+          item.classList.toggle("open");
+        });
+      });
+    </script>
+  </body>
+</html>
