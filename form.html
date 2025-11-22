@@ -3,63 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Authentication</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="/styles/form.css" />
   </head>
   <body>
-    <div class="main-container">
+    <div class="auth-container">
+      <!-- Login Form -->
       <div class="login">
-        <h2>Login</h2>
-        <form action="" method="get">
-          <div>
-            <label for="">Email</label>
-            <br />
-            <input type="email" placeholder="UserName" id="emailLogin" />
-            <br />
-            <label for="">Password</label>
-            <br />
-            <input type="password" placeholder="Password" id="" />
-            <br />
+        <div class="form-header">
+          <h2>Welcome Back</h2>
+          <p>Sign in to your account</p>
+        </div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="emailLogin">Email Address</label>
+            <input
+              type="email"
+              id="emailLogin"
+              placeholder="Enter your email"
+            />
           </div>
+          <div class="form-group">
+            <label for="passwordLogin">Password</label>
+            <input
+              type="password"
+              id="passwordLogin"
+              placeholder="Enter your password"
+            />
+          </div>
+          <div class="form-options">
+            <label class="checkbox">
+              <input type="checkbox" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+          <button type="submit">Sign In</button>
         </form>
-        <p>don't have an account? <a href="">create one</a></p>
-        <button id="login">Login</button>
+        <div class="form-footer">
+          <p>
+            Don't have an account?
+            <a onclick="switchToRegister()">Create one</a>
+          </p>
+        </div>
       </div>
-      <div class="login-p2">
-        <h1>Login Page</h1>
-        <p>"Every day is a new opportunity to create something amazing"</p>
+
+      <!-- Register Form -->
+      <div class="register-page hidden">
+        <div class="form-header">
+          <h2>Create Account</h2>
+          <p>Join us today and get started</p>
+        </div>
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="emailRegister">Email Address</label>
+            <input
+              type="email"
+              id="emailRegister"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="usernameRegister">Username</label>
+            <input
+              type="text"
+              id="usernameRegister"
+              placeholder="Choose a username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="passwordRegister">Password</label>
+            <input
+              type="password"
+              id="passwordRegister"
+              placeholder="Create a password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm your password"
+            />
+          </div>
+          <label class="checkbox">
+            <input type="checkbox" id="termsCheckbox" />
+            <span>I agree to the <a href="#">terms and conditions</a></span>
+          </label>
+          <button type="submit">Create Account</button>
+        </form>
+        <div class="form-footer">
+          <p>
+            Already have an account?
+            <a onclick="switchToLogin()">Sign in</a>
+          </p>
+        </div>
       </div>
     </div>
-    <div class="main-container">
-      <div class="register-page">
-        <h1>Register Page</h1>
-        <p>“Welcome aboard! Let’s get you set up.”</p>
-      </div>
-      <div class="register-p2">
-        <h2>Register</h2>
-        <form action="" method="get">
-          <div>
-            <label for="">Email</label>
-            <br />
-            <input type="email" placeholder="Email" id="" />
-            <br />
-            <label for="">UserName</label>
-            <br />
-            <input type="text" placeholder="UserName" id="" />
-            <br />
-            <label for="">Password</label>
-            <br />
-            <input type="password" placeholder="Password" id="" />
-            <br />
-            <label for="">Confirm Password</label>
-            <br />
-            <input type="password" placeholder="Confirm Password" id="" />
-          </div>
-        </form>
-        <p>already have an acount?<a href="">Login</a></p>
-        <button id="register">Register</button>
-      </div>
-    </div>
-    <script src="./index.js"></script>
+
+    <script src="/js/form.js"></script>
   </body>
 </html>
