@@ -100,6 +100,7 @@ class FormValidator {
       if (user.role === "admin") {
         window.location.href = "/admin/admin.html";
       } else if (user.role === "staff") {
+        // updated path (typo fixed -> staffs.html)
         window.location.href = "/admin/staffs.html";
       }
     }, 1500);
@@ -154,6 +155,7 @@ class FormValidator {
 
     this.showSuccess("Account created successfully! Redirecting...");
     setTimeout(() => {
+      // updated path (typo fixed -> staffs.html)
       window.location.href = "/admin/staffs.html";
     }, 1500);
   }
