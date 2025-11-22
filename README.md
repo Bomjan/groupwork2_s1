@@ -40,3 +40,4 @@ A clean and modern web interface for **Innovate Green AI**, showcasing the main 
    ```bash
    git clone https://github.com/Bomjan/groupwork2_s1.git
    ```
+2. Open `index.html` in your browser
