@@ -1,5 +1,5 @@
 (() => {
-  // ----- helpers -----
+  // Handy Helper Functions
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => Array.from(document.querySelectorAll(sel));
   const today = () => {
@@ -7,7 +7,7 @@
     return d.toISOString().slice(0, 10);
   };
 
-  // ----- storage keys -----
+  // Keys for LocalStorage
   const S = {
     TASKS: "ig_tasks_v1",
     LEAVES: "ig_leaves_v1",
@@ -15,7 +15,7 @@
     EVENTS: "ig_events_v1",
   };
 
-  // ----- state load/save -----
+  // Functions to Load and Save Data
   const load = (key, def = []) => {
     try {
       const raw = localStorage.getItem(key);
@@ -27,7 +27,7 @@
   };
   const save = (key, v) => localStorage.setItem(key, JSON.stringify(v));
 
-  // ----- initial content -----
+  // Populate Default Content if Empty
   if (!localStorage.getItem(S.TASKS)) {
     save(S.TASKS, [
       {
@@ -64,7 +64,7 @@
     ]);
   }
 
-  // ----- utilities -----
+  // General Utility Functions
   function genId() {
     return Math.random().toString(36).slice(2, 9);
   }
@@ -85,7 +85,7 @@
     return `${day}/${month}/${year} ${hours}:${minutes}`;
   }
 
-  // ----- UI wiring -----
+  // Handle UI Interactions and Navigation
   const sections = $$(".nav-btn");
   sections.forEach((btn) =>
     btn.addEventListener("click", (e) => {
@@ -97,7 +97,7 @@
     })
   );
 
-  // Today info
+  // Display today's date in the UI
   const todayDate = new Date();
   const todayFormatted = `${String(todayDate.getDate()).padStart(
     2,
@@ -108,7 +108,7 @@
   )}/${todayDate.getFullYear()}`;
   $("#todayInfo").textContent = `Today: ${todayFormatted}`;
 
-  // ---- Tasks ----
+  // Task Management Logic
   const taskForm = $("#taskForm");
   const taskList = $("#taskList");
   const completedList = $("#completedList");
@@ -175,7 +175,7 @@
     renderTasks();
   }
 
-  // ---- Leave ----
+  // Leave Application Logic
   const leaveForm = $("#leaveForm");
 
   leaveForm.addEventListener("submit", (ev) => {
@@ -203,7 +203,7 @@
     alert("Leave application submitted!");
   });
 
-  // ---- Promotions ----
+  // Promotion Request Logic
   const promoForm = $("#promoForm");
 
   promoForm.addEventListener("submit", (ev) => {
@@ -226,7 +226,7 @@
     alert("Promotion request submitted!");
   });
 
-  // ---- Combined Applications Status ----
+  // Logic to Display All Applications (Leaves & Promotions)
   const appContainer = $("#appContainer");
   const appFilter = $("#appFilter");
 
@@ -294,7 +294,7 @@
 
   appFilter.addEventListener("change", renderApplications);
 
-  // ---- Events / Calendar / Alerts ----
+  // Event Management and Alerts
   const eventForm = $("#eventForm");
   const eventListEl = $("#eventList");
   const alertsEl = $("#alerts");
@@ -348,7 +348,7 @@
     }
   });
 
-  // Alerts: show events that are today
+  // Check for any events happening today and alert the user
   function checkAlerts() {
     const e = load(S.EVENTS);
     const now = today();
@@ -369,13 +369,13 @@
     alertsEl.appendChild(container);
   }
 
-  // ---- initial render ----
+  // Render Everything on Page Load
   renderTasks();
   renderApplications();
   renderEvents();
   checkAlerts();
 
-  // ---- small helpers ----
+  // Small Helper Functions
   function escapeHtml(s) {
     if (!s) return "";
     return s
@@ -386,7 +386,7 @@
       .replaceAll("'", "&#039;");
   }
 
-  // ---- simulate periodic status changes for demo ----
+  // Simulate status updates for demo purposes (randomly approve/reject)
   (function simulateApprovals() {
     const leaves = load(S.LEAVES).map((l) => {
       if (l.status === "pending" && Math.random() > 0.85) {

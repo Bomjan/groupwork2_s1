@@ -1,7 +1,7 @@
-// utility function
+// A handy shortcut for selecting elements by ID
 const $ = (id) => document.getElementById(id);
 
-// Contact form handling
+// Handle the contact form submission gracefully
 const contactForm = $("contactForm");
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
@@ -23,7 +23,7 @@ if (contactForm) {
   });
 }
 
-// Set current year in footer
+// Automatically update the copyright year so we don't have to
 if ($("year")) {
   $("year").textContent = new Date().getFullYear();
 }
@@ -35,7 +35,7 @@ if ($("year")) {
   const profileSection = document.getElementById("profileSection");
   const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
 
-  // Update profile section based on login status
+  // Check if a user is logged in and update the UI accordingly
   function updateProfileSection() {
     const user = JSON.parse(localStorage.getItem("currentUser") || "null");
 
@@ -69,7 +69,7 @@ if ($("year")) {
         </div>
       `;
 
-      // Profile menu toggle
+      // Toggle the profile dropdown menu when clicked
       const profileBtn = $("profileBtn");
       const profileMenu = $("profileMenu");
 
@@ -91,7 +91,7 @@ if ($("year")) {
         });
       }
 
-      // Logout handler
+      // Handle user logout and redirect to home
       const logoutBtn = $("logoutBtn");
       if (logoutBtn) {
         logoutBtn.addEventListener("click", () => {
@@ -102,10 +102,10 @@ if ($("year")) {
     }
   }
 
-  // Initialize profile on load
+  // Run the profile check as soon as the script loads
   updateProfileSection();
 
-  // Mobile menu toggle with animated hamburger
+  // Handle the mobile menu toggle and hamburger animation
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener("click", () => {
       const isActive = mobileMenu.classList.toggle("active");
@@ -114,7 +114,7 @@ if ($("year")) {
       mobileMenu.setAttribute("aria-hidden", isActive ? "false" : "true");
     });
 
-    // Close menu on link click
+    // Close the mobile menu when a link is clicked for better UX
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         mobileMenu.classList.remove("active");
@@ -125,7 +125,7 @@ if ($("year")) {
     });
   }
 
-  // Header shadow on scroll
+  // Add a subtle shadow to the header when scrolling down
   let scrollTimeout;
   window.addEventListener("scroll", () => {
     clearTimeout(scrollTimeout);
@@ -138,7 +138,7 @@ if ($("year")) {
     }, 0);
   });
 
-  // Smooth scroll for anchor links
+  // Enable smooth scrolling for all anchor links
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
       const target = document.querySelector(link.getAttribute("href"));
@@ -148,4 +148,23 @@ if ($("year")) {
       }
     });
   });
+
+  // Logic for the Scroll to Top button visibility and action
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+  if (scrollToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add("visible");
+      } else {
+        scrollToTopBtn.classList.remove("visible");
+      }
+    });
+
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
 })();
