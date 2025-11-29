@@ -3,13 +3,13 @@
 
   // guard: no user -> form
   if (!current) {
-    window.location.href = "/form.html";
+    window.location.href = "../form.html";
     return;
   }
 
   // redirect non-admins to staffs page
   if (current.role && current.role !== "admin") {
-    window.location.href = "/admin/staffs.html";
+    window.location.href = "staffs.html";
     return;
   }
 
@@ -37,7 +37,7 @@
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("currentUser");
-      window.location.href = "/form.html";
+      window.location.href = "../form.html";
     });
   }
 

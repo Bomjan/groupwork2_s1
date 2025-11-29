@@ -49,7 +49,7 @@ if ($("year")) {
         .slice(0, 2);
 
       const dashboardUrl =
-        user.role === "admin" ? "/admin/admin.html" : "/admin/staffs.html";
+        user.role === "admin" ? "admin/admin.html" : "admin/staffs.html";
 
       profileSection.innerHTML = `
         <button class="profile-btn" id="profileBtn">
@@ -57,7 +57,7 @@ if ($("year")) {
           <span>${user.username || user.email.split("@")[0]}</span>
         </button>
         <div class="profile-menu hidden" id="profileMenu">
-          <a href="/profile.html" class="profile-menu-item">
+          <a href="profile.html" class="profile-menu-item">
             <i class="fa fa-user"></i> My Profile
           </a>
           <a href="${dashboardUrl}" class="profile-menu-item">
@@ -96,7 +96,7 @@ if ($("year")) {
       if (logoutBtn) {
         logoutBtn.addEventListener("click", () => {
           localStorage.removeItem("currentUser");
-          window.location.href = "/";
+          window.location.href = "index.html";
         });
       }
     }

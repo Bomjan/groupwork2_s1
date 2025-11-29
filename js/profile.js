@@ -4,7 +4,7 @@
 
   // if no user, redirect to form
   if (!currentUser) {
-    window.location.href = "/form.html";
+    window.location.href = "form.html";
     return;
   }
 
@@ -55,7 +55,7 @@
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("currentUser");
-      window.location.href = "/form.html";
+      window.location.href = "form.html";
     });
   }
 })();
