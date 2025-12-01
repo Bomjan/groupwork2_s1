@@ -111,7 +111,8 @@ groupwork2_s1/
 │   ├── index.css       # Main styles
 │   └── ...             # Component-specific styles
 ├── index.html          # Landing page
-├── form.html           # Contact/Signup form
+├── auth.html           # Login/Register form
+├── rules.html          # Rules & Regulations
 └── README.md           # Project documentation
 ```
 

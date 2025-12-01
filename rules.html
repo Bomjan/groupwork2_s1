@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules & Regulations - InnovateGreen AI</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .rules-container { max-width: 800px; margin: 100px auto; padding: 20px; }
+        .rule-item { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .rule-item h3 { color: var(--green-1); margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fa fa-leaf"></i>
+                </div>
+                <span class="logo-text">InnovateGreen</span>
+            </a>
+
+            <nav class="desktop-nav">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#team" class="nav-link">Team</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="profile-section">
+                    <a href="./auth.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button id="menu-btn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+            <a href="index.html#home" class="mobile-nav-link">Home</a>
+            <a href="index.html#about" class="mobile-nav-link">About</a>
+            <a href="index.html#services" class="mobile-nav-link">Services</a>
+            <a href="index.html#team" class="mobile-nav-link">Team</a>
+            <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+            <a href="./auth.html" class="btn btn-primary mobile-signup">Sign Up</a>
+        </nav>
+    </header>
+
+    <div class="rules-container">
+        <h1 style="text-align: center; margin-bottom: 40px;">Company Rules & Regulations</h1>
+        
+        <div class="rule-item">
+            <h3>1. Attendance Policy</h3>
+            <p>All employees must check in by 9:00 AM. Late arrivals must be reported to the HR department via the dashboard.</p>
+        </div>
+
+        <div class="rule-item">
+            <h3>2. Code of Conduct</h3>
+            <p>Respect and inclusivity are core values. Harassment of any kind will result in immediate disciplinary action.</p>
+        </div>
+
+        <div class="rule-item">
+            <h3>3. Data Privacy</h3>
+            <p>Client data is confidential. Do not share login credentials or access data outside of work premises.</p>
+        </div>
+
+        <div class="rule-item">
+            <h3>4. Sustainability Commitment</h3>
+            <p>Minimize waste. Use digital documentation whenever possible. Turn off equipment when not in use.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>InnovateGreen AI</h4>
+                    <p>Building sustainable futures with intelligent technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="rules.html">Rules & Regulations</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> InnovateGreen AI. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

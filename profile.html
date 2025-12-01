@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile - InnovateGreen AI</title>
+    <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/profile.css" />
     <link
       rel="stylesheet"
@@ -54,6 +55,29 @@
             <p id="userRoleDetail">—</p>
           </div>
         </div>
+        
+        <div class="profile-body" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+          <h3>Security & Settings</h3>
+          
+          <button class="btn-secondary" id="togglePasswordBtn" style="margin-bottom: 10px;">
+            <i class="fa fa-key"></i> Change Password
+          </button>
+          
+          <form id="passwordForm" class="hidden" style="margin-top: 10px; background: #f9f9f9; padding: 15px; border-radius: 8px;">
+            <div class="form-group" style="margin-bottom: 10px;">
+              <input type="password" id="currentPass" placeholder="Current Password" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 10px;">
+              <input type="password" id="newPass" placeholder="New Password" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            <button type="submit" class="btn-primary" style="padding: 5px 10px; font-size: 0.9em;">Update Password</button>
+          </form>
+
+          <div style="margin-top: 20px;">
+            <button class="logout-btn" id="resignBtn" style="background-color: #dc2626; width: 100%;">
+              <i class="fa fa-user-times"></i> Resign from Company
+            </button>
+          </div>
 
         <div class="profile-actions">
           <button class="edit-btn" id="editBtn">

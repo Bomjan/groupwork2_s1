@@ -4,7 +4,7 @@
 
   // if no user, redirect to form
   if (!currentUser) {
-    window.location.href = "form.html";
+    window.location.href = "auth.html";
     return;
   }
 
@@ -55,7 +55,50 @@
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("currentUser");
-      window.location.href = "form.html";
+      window.location.href = "auth.html"; // updated redirect
+    });
+  }
+
+  // Toggle Password Form
+  const togglePassBtn = document.getElementById("togglePasswordBtn");
+  const passForm = document.getElementById("passwordForm");
+  if (togglePassBtn && passForm) {
+    togglePassBtn.addEventListener("click", () => {
+      passForm.classList.toggle("hidden");
+    });
+  }
+
+  // Handle Password Change
+  if (passForm) {
+    passForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const current = document.getElementById("currentPass").value;
+      const newP = document.getElementById("newPass").value;
+      
+      if (!current || !newP) return alert("Please fill all fields");
+      if (current !== currentUser.password) return alert("Incorrect current password");
+      
+      // Update local storage
+      currentUser.password = newP;
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      
+      // Also update the user in the 'users' array if we were simulating a real DB
+      // For now, just updating the session user is enough for the demo
+      
+      alert("Password updated successfully!");
+      passForm.reset();
+      passForm.classList.add("hidden");
+    });
+  }
+
+  // Handle Resignation
+  const resignBtn = document.getElementById("resignBtn");
+  if (resignBtn) {
+    resignBtn.addEventListener("click", () => {
+      if (confirm("Are you sure you want to resign? This action cannot be undone.")) {
+        alert("Resignation request submitted to HR. We are sorry to see you go.");
+        // In a real app, this would send a request to the server
+      }
     });
   }
 })();

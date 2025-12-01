@@ -9,7 +9,8 @@
     <meta property="og:description" content="InnovateGreen AI provides sustainable AI solutions to help businesses grow while protecting the planet." />
     <meta property="og:image" content="/assets/box.jpg" />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍃</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍃</text></svg>">
+    <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/index.css" />
 
     <link
@@ -23,7 +24,7 @@
       <div class="container">
         <a href="index.html" class="logo">
           <div class="logo-icon">
-            <i class="fa fa-leaf"></i>
+            <i class="fa-solid fa-leaf"></i>
           </div>
           <span class="logo-text">InnovateGreen</span>
         </a>
@@ -38,7 +39,7 @@
 
         <div class="nav-actions">
           <div class="profile-section" id="profileSection">
-            <a href="./form.html" class="btn btn-primary" id="signupBtn"
+            <a href="./auth.html" class="btn btn-primary" id="signupBtn"
               >Sign Up</a
             >
           </div>
@@ -61,7 +62,7 @@
         <a href="#services" class="mobile-nav-link">Services</a>
         <a href="#team" class="mobile-nav-link">Team</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
-        <a href="./form.html" class="btn btn-primary mobile-signup">Sign Up</a>
+        <a href="./auth.html" class="btn btn-primary mobile-signup">Sign Up</a>
       </nav>
     </header>
 
@@ -75,7 +76,7 @@
         </p>
         <div class="hero-buttons">
           <a href="#about" class="btn btn-primary">Learn More</a>
-          <a href="./form.html" class="btn btn-secondary">Get Started</a>
+          <a href="./auth.html" class="btn btn-secondary">Get Started</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -132,69 +133,58 @@
 
         <div class="services-grid">
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fa fa-chart-line"></i>
-            </div>
-            <h3>AI-Powered Analytics</h3>
-            <p>
-              Convert data into actionable insights that accelerate sustainable
-              growth and decision-making.
-            </p>
+            <div class="service-icon"><i class="fa fa-chart-line"></i></div>
+            <h3>AI Analytics</h3>
+            <p>Convert data into actionable insights for sustainable growth.</p>
           </div>
-
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fa fa-brain"></i>
-            </div>
-            <h3>Machine Learning Models</h3>
-            <p>
-              Custom models optimized for performance, accuracy, and
-              environmental impact.
-            </p>
+            <div class="service-icon"><i class="fa fa-leaf"></i></div>
+            <h3>Sustainability</h3>
+            <p>Strategic guidance to integrate green tech into operations.</p>
           </div>
-
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fa fa-zap"></i>
-            </div>
-            <h3>Energy Optimization</h3>
-            <p>
-              AI-driven solutions that reduce energy consumption, emissions, and
-              operational cost.
-            </p>
+            <div class="service-icon"><i class="fa fa-shield"></i></div>
+            <h3>Secure Data</h3>
+            <p>Enterprise-grade security with full environmental compliance.</p>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fa fa-leaf"></i>
+    <!-- Publications Section: Latest research and news -->
+    <section class="publications" id="news">
+      <div class="container">
+        <div class="section-header">
+          <h2>Latest News & Publications</h2>
+          <p>Updates from our research team.</p>
+        </div>
+        <div class="services-grid">
+          <div class="publication-card">
+            <div class="publication-header">
+              <i class="fa fa-file-alt"></i>
+              <span class="publication-date">Nov 15, 2025</span>
             </div>
-            <h3>Sustainability Consulting</h3>
-            <p>
-              Strategic guidance to integrate AI-powered sustainability into
-              your business operations.
-            </p>
+            <h3>Q3 Sustainability Report</h3>
+            <p>Our quarterly review on carbon reduction initiatives across AI infrastructure.</p>
+            <a href="#" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
           </div>
-
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fa fa-database"></i>
+          <div class="publication-card">
+            <div class="publication-header">
+              <i class="fa fa-lightbulb"></i>
+              <span class="publication-date">Oct 22, 2025</span>
             </div>
-            <h3>Data Infrastructure</h3>
-            <p>
-              Scalable, efficient data platforms that power intelligent
-              decision-making at scale.
-            </p>
+            <h3>Green Algorithm Research</h3>
+            <p>New findings on energy-efficient machine learning model training techniques.</p>
+            <a href="#" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
           </div>
-
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fa fa-shield"></i>
+          <div class="publication-card">
+            <div class="publication-header">
+              <i class="fa fa-book"></i>
+              <span class="publication-date">Sep 10, 2025</span>
             </div>
-            <h3>Secure & Compliant</h3>
-            <p>
-              Enterprise-grade security with full compliance to environmental
-              and data protection standards.
-            </p>
+            <h3>AI Ethics Policy</h3>
+            <p>Updated guidelines on responsible AI deployment in forestry.</p>
+            <a href="#" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -360,7 +350,7 @@
             <h4>Quick Links</h4>
             <a href="#about">About</a>
             <a href="#services">Services</a>
-            <a href="#team">Team</a>
+            <a href="rules.html">Rules & Regulations</a>
             <a href="#contact">Contact</a>
           </div>
           <div class="footer-section">

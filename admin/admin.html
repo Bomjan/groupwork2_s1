@@ -12,6 +12,7 @@
     />
 
     <!-- Main CSS -->
+    <link rel="stylesheet" href="../styles/base.css" />
     <link rel="stylesheet" href="../styles/admin.css" />
   </head>
 
@@ -54,6 +55,11 @@
           <li class="nav-item" data-section="company" role="link" tabindex="0">
             <i class="fa fa-building"></i>
             <span class="label">Company Data</span>
+          </li>
+
+          <li class="nav-item" data-section="inventory" role="link" tabindex="0">
+            <i class="fa fa-boxes-stacked"></i>
+            <span class="label">Inventory</span>
           </li>
 
           <li class="nav-item" data-section="hr" role="link" tabindex="0">
@@ -172,6 +178,30 @@
               <p class="muted">News & policy updates this month</p>
             </div>
           </article>
+        </section>
+
+        <!-- INVENTORY (New Module) -->
+        <section id="inventory" class="section hidden">
+          <div class="card-head">
+            <h2>Inventory Management</h2>
+            <button class="btn-primary" onclick="addInventoryItem()">+ Add Item</button>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Category</th>
+                  <th>Quantity</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryList">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <!-- Shortcuts + Pending Items -->

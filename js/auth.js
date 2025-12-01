@@ -5,6 +5,9 @@ class FormValidator {
     this.loginContainer = document.querySelector(".login");
     this.registerContainer = document.querySelector(".register-page");
 
+    this.forgotForm = document.getElementById("forgotForm");
+    this.forgotContainer = document.querySelector(".forgot-password");
+
     // Mock user database
     this.users = [
       {
@@ -49,6 +52,13 @@ class FormValidator {
       );
       this.attachInputListeners(this.registerForm);
     }
+
+    if (this.forgotForm) {
+      this.forgotForm.addEventListener("submit", (e) =>
+        this.handleForgotSubmit(e)
+      );
+      this.attachInputListeners(this.forgotForm);
+    }
   }
 
   attachInputListeners(form) {
@@ -62,11 +72,19 @@ class FormValidator {
   switchToRegister() {
     this.loginContainer.classList.add("hidden");
     this.registerContainer.classList.remove("hidden");
+    this.forgotContainer.classList.add("hidden");
   }
 
   switchToLogin() {
     this.registerContainer.classList.add("hidden");
     this.loginContainer.classList.remove("hidden");
+    this.forgotContainer.classList.add("hidden");
+  }
+
+  showForgotPassword() {
+    this.loginContainer.classList.add("hidden");
+    this.registerContainer.classList.add("hidden");
+    this.forgotContainer.classList.remove("hidden");
   }
 
   handleLoginSubmit(e) {
@@ -158,6 +176,26 @@ class FormValidator {
       // updated path (typo fixed -> staffs.html)
       window.location.href = "admin/staffs.html";
     }, 1500);
+  }
+
+  handleForgotSubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById("emailForgot");
+    this.clearAllErrors(this.forgotForm);
+
+    if (!email.value.trim()) {
+      this.showError(email, "Email is required");
+      return;
+    } else if (!this.isValidEmail(email.value)) {
+      this.showError(email, "Please enter a valid email");
+      return;
+    }
+
+    // Simulate sending email
+    this.showSuccess("Reset link sent to your email!");
+    setTimeout(() => {
+      this.switchToLogin();
+    }, 2000);
   }
 
   validateLogin(email, password) {
@@ -325,6 +363,10 @@ function switchToRegister() {
 
 function switchToLogin() {
   validator.switchToLogin();
+}
+
+function showForgotPassword() {
+  validator.showForgotPassword();
 }
 
 // Initialize when DOM is ready
