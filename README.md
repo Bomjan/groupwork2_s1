@@ -46,15 +46,18 @@ A clean, modern, and responsive web interface designed to showcase the vision of
 
 ## Features
 
-- **Modern Aesthetic**: A soothing green and white color palette that reflects our commitment to nature.
+- **Modern Aesthetic**: A soothing green and white color palette that reflects our commitment to nature, enhanced with glassmorphism effects.
 - **Fully Responsive**: Seamless experience across desktops, tablets, and mobile devices.
+- **Mobile-First Experience**:
+    - **Dynamic Menu**: Mobile menu adapts to show user profile and logout options when signed in.
+    - **Smart Navigation**: Scrollable sidebar navigation on mobile for dashboards.
 - **Interactive UI**:
     - Smooth hover effects and transitions.
-    - Sticky navigation header.
+    - Sticky navigation header with blur effect.
     - "Scroll to Top" button for easy navigation.
 - **User Roles**:
-    - **Public**: Access to Home, About, Services, and Team sections.
-    - **Staff/Admin**: Dedicated dashboard for managing tasks, leaves, and events.
+    - **Public**: Access to Home, About, Services, Team, and Publications.
+    - **Staff/Admin**: Dedicated dashboard for managing tasks, leaves, and events with full-width forms on mobile.
 - **SEO Optimized**: Includes meta tags and Open Graph data for better visibility.
 
 ---
