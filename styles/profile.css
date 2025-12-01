@@ -1,0 +1,170 @@
+/* Base styles imported from base.css */
+
+.profile-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.profile-card {
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, var(--green-1), var(--green-2));
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.avatar-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 32px;
+  font-weight: 800;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-header h2 {
+  margin: 0 0 6px 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.profile-header p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.profile-body {
+  padding: 24px;
+}
+
+.profile-body h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: var(--text);
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(10, 30, 20, 0.04);
+}
+
+.info-row:last-child {
+  border-bottom: 0;
+}
+
+.info-row span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.info-row i {
+  color: var(--green-1);
+  width: 16px;
+  text-align: center;
+}
+
+.info-row p {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(10, 30, 20, 0.04);
+}
+
+.edit-btn,
+.logout-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  transition: all 160ms;
+}
+
+.edit-btn {
+  background: linear-gradient(90deg, var(--green-1), var(--green-2));
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(25, 122, 87, 0.15);
+}
+
+.edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(25, 122, 87, 0.2);
+}
+
+.logout-btn {
+  background: rgba(10, 30, 20, 0.06);
+  color: var(--text);
+  border: 1px solid rgba(10, 30, 20, 0.1);
+}
+
+.logout-btn:hover {
+  background: rgba(10, 30, 20, 0.1);
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    border-radius: 8px;
+  }
+
+  .profile-header {
+    padding: 30px 20px;
+  }
+
+  .avatar-large {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+
+  .profile-header h2 {
+    font-size: 20px;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+  }
+
+  .edit-btn,
+  .logout-btn {
+    width: 100%;
+  }
+}

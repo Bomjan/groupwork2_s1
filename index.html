@@ -3,174 +3,406 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InnovateGreen AI - Sustainable AI Solutions</title>
+    <title>InnovateGreen AI — Sustainable AI Solutions</title>
+    <meta
+      name="description"
+      content="InnovateGreen AI provides sustainable AI solutions to help businesses grow while protecting the planet."
+    />
+    <meta
+      property="og:title"
+      content="InnovateGreen AI — Sustainable AI Solutions"
+    />
+    <meta
+      property="og:description"
+      content="InnovateGreen AI provides sustainable AI solutions to help businesses grow while protecting the planet."
+    />
+    <meta property="og:image" content="/assets/box.jpg" />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍃</text></svg>"
+    />
+    <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/index.css" />
+
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
   </head>
   <body>
-    <header>
+    <!-- Main Header and Navigation Menu -->
+    <header class="header" id="header">
       <div class="container">
-        <a href="/" class="logo">InnovateGreen AI</a>
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fa fa-leaf"></i>
+          </div>
+          <span class="logo-text">InnovateGreen</span>
+        </a>
 
         <nav class="desktop-nav">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#team">Team</a>
-          <a href="./form.html">Contact</a>
-          <a href="/admin/admin.html">admin</a>
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#team" class="nav-link">Team</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </nav>
 
-        <button id="menu-btn">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <div class="nav-actions">
+          <div class="profile-section" id="profileSection">
+            <a href="./auth.html" class="btn btn-primary" id="signupBtn"
+              >Sign Up</a
+            >
+          </div>
+          <button
+            id="menu-btn"
+            class="menu-btn"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobile-menu">
-        <nav>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#team">Team</a>
-          <a href="./form.html">Contact</a>
-        </nav>
-      </div>
+      <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#team" class="mobile-nav-link">Team</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="./auth.html" class="btn btn-primary mobile-signup">Sign Up</a>
+      </nav>
     </header>
 
-    <!-- HERO -->
-    <section id="home">
-      <div class="hero-overlay"></div>
+    <!-- Hero Section: First impression and main call to action -->
+    <section class="hero" id="home">
       <div class="hero-content">
         <h1>Powering a Greener Future with Intelligent Solutions</h1>
         <p>
-          At InnovateGreen AI, we harness the power of artificial intelligence
-          to create sustainable technologies that benefit both businesses and
-          our planet.
+          Harness AI to create sustainable technologies that benefit businesses
+          and our planet.
         </p>
-        <a href="#about">Discover Our Mission</a>
+        <div class="hero-buttons">
+          <a href="#about" class="btn btn-primary">Learn More</a>
+          <a href="./auth.html" class="btn btn-secondary">Get Started</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="gradient-orb"></div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <img src="/assets/box.jpg" alt="Sustainable Technology" />
-      <div>
-        <h2>Our Vision for a Sustainable World</h2>
-        <p>
-          InnovateGreen AI was founded on the belief that progress and
-          environmental responsibility can thrive together. Our mission is to
-          develop AI solutions that promote sustainability and resource
-          efficiency.
-        </p>
-        <p>
-          We envision industries powered by clean energy, minimal waste, and
-          intelligent systems. By making sustainability profitable, we strive to
-          accelerate a global transition to a greener economy.
-        </p>
+    <!-- About Section: Company vision and stats -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>Our Vision for a Sustainable World</h2>
+            <p>
+              InnovateGreen AI was founded on the belief that progress and
+              environmental responsibility can thrive together. Our mission is
+              to develop AI solutions that promote sustainability and resource
+              efficiency.
+            </p>
+            <p>
+              We envision industries powered by clean energy, minimal waste, and
+              intelligent systems. By making sustainability profitable, we
+              accelerate a global transition to a greener economy.
+            </p>
+            <div class="stats">
+              <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Projects Completed</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Team Members</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Countries Served</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <img src="./assets/box.jpg" alt="Sustainable Technology" />
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services">
-      <h2>What We Do</h2>
-      <p>Innovative AI services for sustainable impact.</p>
+    <!-- Services Section: What we offer -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>What We Do</h2>
+          <p>Innovative AI services for sustainable impact.</p>
+        </div>
 
-      <div class="services-grid">
-        <!-- Card 1 -->
-        <div class="service-card">
-          <i class="fa-solid fa-computer icon"></i>
-          <h3>AI-Powered Analytics</h3>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-chart-line"></i></div>
+            <h3>AI Analytics</h3>
+            <p>Convert data into actionable insights for sustainable growth.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-leaf"></i></div>
+            <h3>Sustainability</h3>
+            <p>Strategic guidance to integrate green tech into operations.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fa fa-shield"></i></div>
+            <h3>Secure Data</h3>
+            <p>Enterprise-grade security with full environmental compliance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications Section: Latest research and news -->
+    <section class="publications" id="news">
+      <div class="container">
+        <div class="section-header">
+          <h2>Latest News & Publications</h2>
+          <p>Updates from our research team.</p>
+        </div>
+        <div class="services-grid">
+          <div class="publication-card">
+            <div class="publication-header">
+              <i class="fa fa-file-alt"></i>
+              <span class="publication-date">Nov 15, 2025</span>
+            </div>
+            <h3>Q3 Sustainability Report</h3>
+            <p>
+              Our quarterly review on carbon reduction initiatives across AI
+              infrastructure.
+            </p>
+            <a href="#" class="read-more"
+              >Read More <i class="fa fa-arrow-right"></i
+            ></a>
+          </div>
+          <div class="publication-card">
+            <div class="publication-header">
+              <i class="fa fa-lightbulb"></i>
+              <span class="publication-date">Oct 22, 2025</span>
+            </div>
+            <h3>Green Algorithm Research</h3>
+            <p>
+              New findings on energy-efficient machine learning model training
+              techniques.
+            </p>
+            <a href="#" class="read-more"
+              >Read More <i class="fa fa-arrow-right"></i
+            ></a>
+          </div>
+          <div class="publication-card">
+            <div class="publication-header">
+              <i class="fa fa-book"></i>
+              <span class="publication-date">Sep 10, 2025</span>
+            </div>
+            <h3>AI Ethics Policy</h3>
+            <p>Updated guidelines on responsible AI deployment in forestry.</p>
+            <a href="#" class="read-more"
+              >Read More <i class="fa fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section: Meet the people behind the magic -->
+    <section class="team" id="team">
+      <div class="container">
+        <div class="section-header">
+          <h2>Meet Our Team</h2>
+          <p>The brilliant minds behind our innovative solutions.</p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-member">
+            <img
+              src="https://picsum.photos/400/400?random=1"
+              alt="Mr. Sundra Bomjan"
+            />
+            <div class="member-info">
+              <h3>Mr. Sundra Bomjan</h3>
+              <p>CEO & Founder</p>
+              <div class="member-socials">
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fa-brands fa-linkedin"></i
+                ></a>
+                <a href="#" aria-label="GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="https://picsum.photos/400/400?random=2" alt="Sujal Rai" />
+            <div class="member-info">
+              <h3>Sujal Rai</h3>
+              <p>Head of AI Research</p>
+              <div class="member-socials">
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fa-brands fa-linkedin"></i
+                ></a>
+                <a href="#" aria-label="GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img
+              src="https://picsum.photos/400/400?random=3"
+              alt="Tandin Dorji"
+            />
+            <div class="member-info">
+              <h3>Tandin Dorji</h3>
+              <p>Lead Sustainability Officer</p>
+              <div class="member-socials">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fa-brands fa-linkedin"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img
+              src="https://picsum.photos/400/400?random=4"
+              alt="Sonam Rigsel Dorji"
+            />
+            <div class="member-info">
+              <h3>Sonam Rigsel Dorji</h3>
+              <p>VP of Engineering</p>
+              <div class="member-socials">
+                <a href="#" aria-label="GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fa-brands fa-linkedin"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img
+              src="https://picsum.photos/400/400?random=5"
+              alt="Sonam Mindu Dorji"
+            />
+            <div class="member-info">
+              <h3>Sonam Mindu Dorji</h3>
+              <p>Product Manager</p>
+              <div class="member-socials">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <a href="#" aria-label="GitHub"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section: Get in touch form -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Get In Touch</h2>
           <p>
-            Convert data into actionable insights that accelerate sustainable
-            growth.
+            We'd love to hear from you. Let's build a greener future together.
           </p>
         </div>
 
-        <!-- Card 2 -->
-        <div class="service-card">
-          <i class="fa-solid fa-robot icon"></i>
-          <h3>Machine Learning Models</h3>
+        <form id="contactForm" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="message-btn">
+            Send Message
+          </button>
+        </form>
+        <p id="success" class="success-message hidden"></p>
+      </div>
+    </section>
+
+    <!-- Floating FAQ Button for quick help -->
+    <a href="faq.html" class="faq-button" title="FAQ">
+      <i class="fa fa-question"></i>
+    </a>
+
+    <!-- Scroll to Top Button for better navigation -->
+    <button
+      id="scrollToTopBtn"
+      class="scroll-to-top"
+      aria-label="Scroll to top"
+    >
+      <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- Site Footer with links and copyright -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>InnovateGreen AI</h4>
+            <p>Building sustainable futures with intelligent technology.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="rules.html">Rules & Regulations</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="GitHub"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
           <p>
-            Custom models optimized for performance and environmental impact.
+            &copy; <span id="year"></span> InnovateGreen AI. All Rights
+            Reserved.
           </p>
         </div>
-
-        <!-- Card 3 -->
-        <div class="service-card">
-          <i class="fa-solid fa-bolt icon"></i>
-          <h3>Energy Optimization</h3>
-          <p>AI-driven solutions that reduce energy consumption and cost.</p>
-        </div>
       </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team">
-      <h2>Meet Our Team</h2>
-      <p>The brilliant minds behind our innovative solutions.</p>
-
-      <div class="team-grid">
-        <div class="team-member">
-          <img
-            src="https://picsum.photos/400/400?random=1"
-            alt="Dr. Evelyn Reed"
-          />
-          <h3>Dr. Evelyn Reed</h3>
-          <p>CEO & Founder</p>
-        </div>
-
-        <div class="team-member">
-          <img src="https://picsum.photos/400/400?random=2" alt="Marcus Chen" />
-          <h3>Marcus Chen</h3>
-          <p>Head of AI Research</p>
-        </div>
-
-        <div class="team-member">
-          <img src="https://picsum.photos/400/400?random=3" alt="Aisha Khan" />
-          <h3>Aisha Khan</h3>
-          <p>Lead Sustainability Officer</p>
-        </div>
-
-        <div class="team-member">
-          <img
-            src="https://picsum.photos/400/400?random=4"
-            alt="David Miller"
-          />
-          <h3>David Miller</h3>
-          <p>VP of Engineering</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Get In Touch</h2>
-      <p id="success"></p>
-      <p>We'd love to hear from you. Let's build a greener future together.</p>
-
-      <form id="contactForm">
-        <label for="name">Name</label>
-        <input type="text" name="name" required id="name" />
-
-        <label for="email">Email</label>
-        <input type="email" name="email" required id="email" />
-
-        <label for="message">Message</label>
-        <textarea name="message" rows="5" required id="message"></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-    <div class="faq">
-      <a href="faq.html"><i class="fa-solid fa-question"></i></a>
-    </div>
-
-    <footer>
-      <p>
-        &copy; <span id="year"></span> InnovateGreen AI. All Rights Reserved.
-      </p>
     </footer>
 
     <script src="js/script.js"></script>

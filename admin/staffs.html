@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Staffs — InnovateGreen AI</title>
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../styles/staff.css" />
+    <link rel="stylesheet" href="../styles/index.css" />
+    <style>
+      input[type="date"] {
+        color: #0a1e14;
+      }
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 200ms;
+      }
+      input[type="date"]::-webkit-calendar-picker-indicator:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <a href="../index.html">InnovateGreen AI — Staffs</a>
+      </div>
+      <div class="right-info" id="todayInfo"></div>
+    </header>
+
+    <main class="container">
+      <nav class="sidebar">
+        <button data-section="tasks" class="nav-btn active">
+          Tasks & Tours
+        </button>
+        <button data-section="leave" class="nav-btn">Apply for Leave</button>
+        <button data-section="promotion" class="nav-btn">
+          Apply for Promotion
+        </button>
+        <button data-section="applications" class="nav-btn">
+          My Applications
+        </button>
+        <button data-section="calendar" class="nav-btn">
+          Calendar & Events
+        </button>
+      </nav>
+
+      <section class="content">
+        <!-- Tasks & Tours -->
+        <section id="tasks" class="panel active-panel">
+          <h2>Tasks & Tours</h2>
+          <form id="taskForm" class="form-inline">
+            <input
+              type="text"
+              id="taskTitle"
+              placeholder="Task / Tour title"
+              required
+            />
+            <select id="taskType">
+              <option value="task">Task</option>
+              <option value="tour">Tour</option>
+            </select>
+            <input
+              type="text"
+              id="taskDate"
+              placeholder="dd/mm/yyyy"
+              maxlength="10"
+            />
+            <button type="submit">Add</button>
+          </form>
+
+          <div class="list-wrap">
+            <div>
+              <h3>Pending</h3>
+              <ul id="taskList" class="list"></ul>
+            </div>
+            <div>
+              <h3>Completed</h3>
+              <ul id="completedList" class="list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Leave Application -->
+        <section id="leave" class="panel">
+          <h2>Apply for Leave</h2>
+          <form id="leaveForm" class="form">
+            <label>
+              From
+              <input
+                type="text"
+                id="leaveFrom"
+                placeholder="dd/mm/yyyy"
+                maxlength="10"
+                required
+              />
+            </label>
+            <label>
+              To
+              <input
+                type="text"
+                id="leaveTo"
+                placeholder="dd/mm/yyyy"
+                maxlength="10"
+                required
+              />
+            </label>
+            <label>
+              Reason
+              <input
+                type="text"
+                id="leaveReason"
+                placeholder="e.g., Personal, Medical"
+                required
+              />
+            </label>
+            <label>
+              Comment (optional)
+              <input type="text" id="leaveComment" />
+            </label>
+            <div class="form-actions">
+              <button type="submit">Submit Leave Application</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Promotion Application -->
+        <section id="promotion" class="panel">
+          <h2>Apply for Promotion</h2>
+          <form id="promoForm" class="form">
+            <label>
+              Desired Role
+              <input
+                type="text"
+                id="promoRole"
+                placeholder="e.g., Senior Developer"
+                required
+              />
+            </label>
+            <label>
+              Justification
+              <textarea id="promoJustify" rows="3" required></textarea>
+            </label>
+            <div class="form-actions">
+              <button type="submit">Submit Promotion Request</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- My Applications Status -->
+        <section id="applications" class="panel">
+          <h2>My Applications Status</h2>
+          <div class="filters">
+            <select id="appFilter">
+              <option value="all">All Applications</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+
+          <div id="appContainer"></div>
+        </section>
+
+        <!-- Calendar & Events -->
+        <section id="calendar" class="panel">
+          <h2>Calendar & Events</h2>
+          <form id="eventForm" class="form-inline">
+            <input
+              type="text"
+              id="eventTitle"
+              placeholder="Event title"
+              required
+            />
+            <input
+              type="text"
+              id="eventDate"
+              placeholder="dd/mm/yyyy"
+              maxlength="10"
+              required
+            />
+            <input type="time" id="eventTime" />
+            <button type="submit">Add Event</button>
+          </form>
+
+          <div class="calendar-area">
+            <div>
+              <h3>Upcoming Events</h3>
+              <ul id="eventList" class="list"></ul>
+            </div>
+            <div class="alert-box" id="alerts"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="../js/staff.js"></script>
+  </body>
+</html>

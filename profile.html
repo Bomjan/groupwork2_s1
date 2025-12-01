@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - InnovateGreen AI</title>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="profile-container">
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="avatar-large" id="avatarLarge">A</div>
+          <h2 id="userName">Loading...</h2>
+          <p id="userRole">User</p>
+        </div>
+
+        <div class="profile-body">
+          <h3>Personal Details</h3>
+          <div class="info-row">
+            <span
+              ><i class="fa fa-envelope" aria-hidden="true"></i> Email:</span
+            >
+            <p id="userEmail">—</p>
+          </div>
+
+          <div class="info-row">
+            <span><i class="fa fa-phone" aria-hidden="true"></i> Phone:</span>
+            <p id="userPhone">—</p>
+          </div>
+
+          <div class="info-row">
+            <span
+              ><i class="fa fa-map-marker" aria-hidden="true"></i>
+              Address:</span
+            >
+            <p id="userAddress">—</p>
+          </div>
+
+          <div class="info-row">
+            <span
+              ><i class="fa fa-briefcase" aria-hidden="true"></i>
+              Department:</span
+            >
+            <p id="userDepartment">—</p>
+          </div>
+
+          <div class="info-row">
+            <span><i class="fa fa-id-badge" aria-hidden="true"></i> Role:</span>
+            <p id="userRoleDetail">—</p>
+          </div>
+        </div>
+        
+        <div class="profile-body" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+          <h3>Security & Settings</h3>
+          
+          <button class="btn-secondary" id="togglePasswordBtn" style="margin-bottom: 10px;">
+            <i class="fa fa-key"></i> Change Password
+          </button>
+          
+          <form id="passwordForm" class="hidden" style="margin-top: 10px; background: #f9f9f9; padding: 15px; border-radius: 8px;">
+            <div class="form-group" style="margin-bottom: 10px;">
+              <input type="password" id="currentPass" placeholder="Current Password" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 10px;">
+              <input type="password" id="newPass" placeholder="New Password" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            <button type="submit" class="btn-primary" style="padding: 5px 10px; font-size: 0.9em;">Update Password</button>
+          </form>
+
+          <div style="margin-top: 20px;">
+            <button class="logout-btn" id="resignBtn" style="background-color: #dc2626; width: 100%;">
+              <i class="fa fa-user-times"></i> Resign from Company
+            </button>
+          </div>
+
+        <div class="profile-actions">
+          <button class="edit-btn" id="editBtn">
+            <i class="fa fa-edit" aria-hidden="true"></i> Edit Profile
+          </button>
+          <button class="logout-btn" id="logoutBtn">
+            <i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+  </body>
+</html>

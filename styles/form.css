@@ -1,17 +1,19 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+/* Resets handled by base.css */
 
 body {
-  width: 100%;
-  gap: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
+  background: linear-gradient(
+        135deg,
+        rgba(250, 255, 250, 0.8),
+        rgba(240, 248, 242, 0.9)
+      )
+      fixed,
+    #f4fbf6;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   /* background-image: linear-gradient(
@@ -34,12 +36,26 @@ body {
   ); */
   width: 1000px;
   /* background-color: black; */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  border-radius: 10px;
+=======
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #0a1e14;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+.auth-container {
+  width: 100%;
+  max-width: 500px;
+>>>>>>> sujal
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+/* Login Section */
 .login {
+<<<<<<< HEAD
   width: 495px;
   /* height: 500px; */
   background-color: #f9fafb;
@@ -51,8 +67,28 @@ body {
   border-radius: 10px;
   /* color: aliceblue; */
   box-shadow: 0px 0px 20px 2px rgba(72, 70, 70, 0.582);
+=======
+  background: #ffffff;
+  padding: 48px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(13, 37, 26, 0.1);
+  border: 1px solid rgba(12, 28, 18, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInLeft 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-height: 500px;
+>>>>>>> sujal
 }
+
+.login.hidden {
+  display: none;
+  animation: slideOutLeft 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Register Section */
 .register-page {
+<<<<<<< HEAD
   width: 495px;
   /* height: 500px; */
   background-color: #f9fafb;
@@ -89,8 +125,79 @@ body {
   box-shadow: 0px 0px 20px 2px rgba(72, 70, 70, 0.582);
 
   /* opacity: 0.8; */
+=======
+  background: #ffffff;
+  padding: 48px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(13, 37, 26, 0.1);
+  border: 1px solid rgba(12, 28, 18, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInRight 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-height: 580px;
 }
+
+.register-page.hidden {
+  display: none;
+  animation: slideOutRight 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Forgot Password Section */
+.forgot-password {
+  background: #ffffff;
+  padding: 48px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(13, 37, 26, 0.1);
+  border: 1px solid rgba(12, 28, 18, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInRight 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-height: 400px;
+>>>>>>> sujal
+}
+
+.forgot-password.hidden {
+  display: none;
+}
+
+/* Form Header */
+.form-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.form-header h2 {
+  font-size: 32px;
+  color: #197a57;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.form-header p {
+  font-size: 15px;
+  color: #556069;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 label {
+<<<<<<< HEAD
   font-size: small;
 }
 input {
@@ -124,10 +231,55 @@ button:hover {
   width: 495px;
   /* height: 500px; */
   background-color: #f9fafb;
+=======
+  font-size: 13px;
+  font-weight: 700;
+  color: #0a1e14;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 14px 16px;
+  border: 1.5px solid rgba(10, 30, 20, 0.1);
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(251, 255, 249, 0.8)
+  );
+  font-size: 15px;
+  color: #0a1e14;
+  transition: all 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: inherit;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: #b0bac2;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #197a57;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(25, 122, 87, 0.12),
+    0 8px 24px rgba(25, 122, 87, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Checkbox Styles */
+.form-options {
+>>>>>>> sujal
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+<<<<<<< HEAD
   border-radius: 10px;
   padding-bottom: 20px;
 
@@ -141,4 +293,254 @@ button:hover {
   font-size: medium;
   font-style: italic;
   color: rgb(38, 58, 241);
+=======
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #0a1e14;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #197a57;
+  border-radius: 4px;
+}
+
+.checkbox a {
+  color: #197a57;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.checkbox a:hover {
+  text-decoration: underline;
+}
+
+.forgot-link {
+  color: #197a57;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: opacity 200ms ease;
+}
+
+.forgot-link:hover {
+  opacity: 0.8;
+}
+
+/* Button Styles */
+button[type="button"],
+button[type="submit"] {
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #197a57 0%, #1aa06a 100%);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  letter-spacing: 0.3px;
+  box-shadow: 0 8px 24px rgba(26, 137, 90, 0.2);
+  position: relative;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+button[type="button"]::before,
+button[type="submit"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 600ms, height 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+button[type="button"]:hover,
+button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(26, 137, 90, 0.25);
+}
+
+button[type="button"]:active::before,
+button[type="submit"]:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+button[type="button"]:active,
+button[type="submit"]:active {
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.form-footer {
+  text-align: center;
+  margin-top: 24px;
+  color: #556069;
+  font-size: 14px;
+}
+
+.form-footer a {
+  color: #197a57;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 200ms ease;
+}
+
+.form-footer a:hover {
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+/* Error Messages */
+.error-message {
+  display: block;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 6px;
+  animation: shake 300ms ease-in-out;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: 350px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background: linear-gradient(135deg, #197a57, #1aa06a);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login,
+  .register-page {
+    padding: 40px 32px;
+    min-height: auto;
+  }
+
+  .form-header h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    max-width: 100%;
+  }
+
+  .login,
+  .register-page {
+    padding: 32px 24px;
+    border-radius: 14px;
+  }
+
+  .form-header h2 {
+    font-size: 24px;
+  }
+
+  .form-header p {
+    font-size: 14px;
+  }
+
+  .toast {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    max-width: none;
+  }
+>>>>>>> sujal
 }
