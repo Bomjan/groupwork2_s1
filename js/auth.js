@@ -8,27 +8,34 @@ class FormValidator {
     this.forgotForm = document.getElementById("forgotForm");
     this.forgotContainer = document.querySelector(".forgot-password");
 
-    // Mock user database
-    this.users = [
-      {
-        username: "admin",
-        email: "admin@example.com",
-        password: "admin123",
-        role: "admin",
-      },
-      {
-        username: "staff1",
-        email: "staff1@example.com",
-        password: "staff123",
-        role: "staff",
-      },
-      {
-        username: "staff2",
-        email: "staff2@example.com",
-        password: "staff123",
-        role: "staff",
-      },
-    ];
+    // Load users from localStorage or use mock data
+    const storedUsers = localStorage.getItem("allUsers");
+    if (storedUsers) {
+      this.users = JSON.parse(storedUsers);
+    } else {
+      this.users = [
+        {
+          username: "admin",
+          email: "admin@example.com",
+          password: "admin123",
+          role: "admin",
+        },
+        {
+          username: "staff1",
+          email: "staff1@example.com",
+          password: "staff123",
+          role: "staff",
+        },
+        {
+          username: "staff2",
+          email: "staff2@example.com",
+          password: "staff123",
+          role: "staff",
+        },
+      ];
+      // Save initial mock data to localStorage
+      localStorage.setItem("allUsers", JSON.stringify(this.users));
+    }
 
     this.init();
   }
@@ -118,8 +125,10 @@ class FormValidator {
       if (user.role === "admin") {
         window.location.href = "admin/admin.html";
       } else if (user.role === "staff") {
-        // updated path (typo fixed -> staffs.html)
         window.location.href = "admin/staffs.html";
+      } else {
+        // Default redirect for normal users
+        window.location.href = "index.html";
       }
     }, 1500);
   }
@@ -158,23 +167,23 @@ class FormValidator {
       return;
     }
 
-    // Create new user with staff role by default
+    // Create new user with user role by default
     const newUser = {
       username: username.value,
       email: email.value,
       password: password.value,
-      role: "staff",
+      role: "user",
     };
 
     this.users.push(newUser);
 
     // Store in localStorage
+    localStorage.setItem("allUsers", JSON.stringify(this.users));
     localStorage.setItem("currentUser", JSON.stringify(newUser));
 
     this.showSuccess("Account created successfully! Redirecting...");
     setTimeout(() => {
-      // updated path (typo fixed -> staffs.html)
-      window.location.href = "admin/staffs.html";
+      window.location.href = "index.html";
     }, 1500);
   }
 

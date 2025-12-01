@@ -94,6 +94,11 @@
   // Handle Resignation
   const resignBtn = document.getElementById("resignBtn");
   if (resignBtn) {
+    // Only show resign button for staff members
+    if (userRole !== "staff") {
+      resignBtn.style.display = "none";
+    }
+
     resignBtn.addEventListener("click", () => {
       if (confirm("Are you sure you want to resign? This action cannot be undone.")) {
         alert("Resignation request submitted to HR. We are sorry to see you go.");

@@ -1,8 +1,17 @@
-/* Resets handled by base.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    sans-serif;
+  font-family: var(--font-body);
   background: linear-gradient(
         135deg,
         rgba(250, 255, 250, 0.8),
@@ -13,30 +22,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  /* background-image: linear-gradient(
-    to right,
-    rgb(0, 110, 255),
-    rgb(0, 128, 60)
-  ); */
-  /* background-image: url(/assets/background-image.jpg); */
-  background-color: #f9fafb;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.main-container {
-  /* height: 500px; */
-  /* background-image: linear-gradient(
-    to right,
-    rgb(0, 110, 255),
-    rgb(0, 128, 60)
-  ); */
-  width: 1000px;
-  /* background-color: black; */
-=======
   min-height: 100vh;
   padding: 40px 20px;
   color: #0a1e14;
@@ -47,7 +32,6 @@ body {
 .auth-container {
   width: 100%;
   max-width: 500px;
->>>>>>> sujal
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
@@ -55,19 +39,6 @@ body {
 
 /* Login Section */
 .login {
-<<<<<<< HEAD
-  width: 495px;
-  /* height: 500px; */
-  background-color: #f9fafb;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 20px;
-  border-radius: 10px;
-  /* color: aliceblue; */
-  box-shadow: 0px 0px 20px 2px rgba(72, 70, 70, 0.582);
-=======
   background: #ffffff;
   padding: 48px 40px;
   border-radius: 16px;
@@ -78,7 +49,6 @@ body {
   justify-content: center;
   animation: slideInLeft 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
   min-height: 500px;
->>>>>>> sujal
 }
 
 .login.hidden {
@@ -88,44 +58,6 @@ body {
 
 /* Register Section */
 .register-page {
-<<<<<<< HEAD
-  width: 495px;
-  /* height: 500px; */
-  background-color: #f9fafb;
-  /* background-image: url(/assets/reg.webp); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 20px;
-
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px 2px rgba(72, 70, 70, 0.582);
-
-  /* color: aliceblue; */
-  /* opacity: 0.8; */
-}
-.login-p2 {
-  width: 495px;
-  /* height: 500px; */
-  background-color: #f9fafb;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 20px;
-
-  border-radius: 10px;
-  /* color: rgb(255, 255, 255); */
-  /* background-image: url(/assets/log.webp); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: 0px 0px 20px 2px rgba(72, 70, 70, 0.582);
-
-  /* opacity: 0.8; */
-=======
   background: #ffffff;
   padding: 48px 40px;
   border-radius: 16px;
@@ -141,25 +73,6 @@ body {
 .register-page.hidden {
   display: none;
   animation: slideOutRight 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* Forgot Password Section */
-.forgot-password {
-  background: #ffffff;
-  padding: 48px 40px;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(13, 37, 26, 0.1);
-  border: 1px solid rgba(12, 28, 18, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  animation: slideInRight 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  min-height: 400px;
->>>>>>> sujal
-}
-
-.forgot-password.hidden {
-  display: none;
 }
 
 /* Form Header */
@@ -197,41 +110,6 @@ form {
 }
 
 label {
-<<<<<<< HEAD
-  font-size: small;
-}
-input {
-  padding: 10px;
-  width: 100%;
-  border: 1px none black;
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px 1px rgba(72, 70, 70, 0.582);
-}
-button {
-  width: 100px;
-  padding: 10px;
-  border: 1px none;
-  border-radius: 10px;
-  background-color: #10b981;
-  color: #f9fafb;
-  margin-top: 10px;
-  margin-left: 50px;
-  font-size: 15px;
-  /* font-weight: bold; */
-}
-button:hover {
-  width: 100px;
-  padding: 10px;
-  border: 1px solid none;
-  border-radius: 10px;
-  background-color: #0d8a60;
-  margin-top: 10px;
-}
-.register-p2 {
-  width: 495px;
-  /* height: 500px; */
-  background-color: #f9fafb;
-=======
   font-size: 13px;
   font-weight: 700;
   color: #0a1e14;
@@ -275,25 +153,9 @@ input[type="password"]:focus {
 
 /* Checkbox Styles */
 .form-options {
->>>>>>> sujal
   display: flex;
   justify-content: space-between;
   align-items: center;
-<<<<<<< HEAD
-  border-radius: 10px;
-  padding-bottom: 20px;
-
-  /* color: aliceblue; */
-  box-shadow: 0px 0px 20px 2px rgba(72, 70, 70, 0.582);
-}
-.suggest {
-  margin-top: -10px;
-}
-.radioInput {
-  font-size: medium;
-  font-style: italic;
-  color: rgb(38, 58, 241);
-=======
   gap: 16px;
   margin-top: 8px;
 }
@@ -542,5 +404,4 @@ button[type="submit"]:active {
     left: 16px;
     max-width: none;
   }
->>>>>>> sujal
 }

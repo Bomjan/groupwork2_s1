@@ -1,10 +1,11 @@
-<<<<<<< HEAD
 // Set current year in footer
-document.getElementById("year").textContent = new Date().getFullYear();
-=======
+const yearElement = document.getElementById("year");
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
+
 // A handy shortcut for selecting elements by ID
 const $ = (id) => document.getElementById(id);
->>>>>>> sujal
 
 // Handle the contact form submission gracefully
 const contactForm = $("contactForm");
@@ -28,23 +29,17 @@ if (contactForm) {
   });
 }
 
-// Automatically update the copyright year so we don't have to
-if ($("year")) {
-  $("year").textContent = new Date().getFullYear();
-}
-
 (() => {
   const header = document.getElementById("header");
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const profileSection = document.getElementById("profileSection");
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
 
   // Check if a user is logged in and update the UI accordingly
   function updateProfileSection() {
     const user = JSON.parse(localStorage.getItem("currentUser") || "null");
 
-    if (user) {
+    if (user && profileSection) {
       const initials = (user.username || user.email)
         .split("@")[0]
         .split(" ")
@@ -53,21 +48,35 @@ if ($("year")) {
         .toUpperCase()
         .slice(0, 2);
 
-      const dashboardUrl =
-        user.role === "admin" ? "admin/admin.html" : "admin/staffs.html";
+      const displayName = user.username || user.email.split("@")[0];
+
+      // Determine dashboard URL based on role
+      let dashboardLink = "";
+      if (user.role === "admin") {
+        dashboardLink = `
+          <a href="admin/admin.html" class="profile-menu-item">
+            <i class="fa fa-dashboard"></i> Dashboard
+          </a>`;
+      } else if (user.role === "staff") {
+        dashboardLink = `
+          <a href="admin/staffs.html" class="profile-menu-item">
+            <i class="fa fa-dashboard"></i> Dashboard
+          </a>`;
+      } else {
+        // For regular users, maybe point to profile or hide dashboard
+        dashboardLink = `
+          <a href="profile.html" class="profile-menu-item">
+            <i class="fa fa-user-circle"></i> My Profile
+          </a>`;
+      }
 
       profileSection.innerHTML = `
         <button class="profile-btn" id="profileBtn">
           <div class="user-avatar">${initials}</div>
-          <span>${user.username || user.email.split("@")[0]}</span>
+          <span>${displayName}</span>
         </button>
         <div class="profile-menu hidden" id="profileMenu">
-          <a href="profile.html" class="profile-menu-item">
-            <i class="fa fa-user"></i> My Profile
-          </a>
-          <a href="${dashboardUrl}" class="profile-menu-item">
-            <i class="fa fa-dashboard"></i> Dashboard
-          </a>
+          ${dashboardLink}
           <button id="logoutBtn" class="profile-menu-item logout" style="border: 0; width: 100%; text-align: left; background: transparent; cursor: pointer;">
             <i class="fa fa-sign-out-alt"></i> Logout
           </button>
@@ -165,109 +174,6 @@ if ($("year")) {
       }
     });
 
-<<<<<<< HEAD
-// Add CSS for animations
-const style = document.createElement("style");
-style.textContent = `
-    .navbar-scrolled {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    section {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    
-    section.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    body:not(.loaded) * {
-        transition: none !important;
-    }
-`;
-document.head.appendChild(style);
-/**
-.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,–,C,C,C,C,–,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,$,H,C,–,!,Q,;,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,–,N,N,?,;,:,H,!,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,!,N,Q,O,>,>,C,?,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,>,Q,!,–,>,:,>,C,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,!,$,>,.,.,.,>,O,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,:,$,7,.,.,.,:,$,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,;,Q,7,–,!,–,>,Q,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,;,H,?,7,O,7,>,H,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,;,Q,?,!,>,–,:,H,;,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,;,N,?,–,;,!,–,O,–,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,;,H,7,;,;,7,–,C,:,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,;,>,C,$,Q,H,Q,Q,$,$,H,7,;,;,:,;,7,!,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,!,H,H,N,Q,H,N,H,N,N,N,Q,>,;,.,.,.,!,>,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,–,N,N,M,M,M,N,N,O,O,O,Q,$,>,;,.,.,.,!,7,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,>,M,M,Q,C,?,?,?,:,–,–,:,H,>,.,.,.,.,:,?,;,–,;,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,7,Q,$,?,>,:,:,:,?,–,;,:,M,7,;,;,!,;,!,M,N,H,Q,O,:,–,7,C,7,;,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,>,Q,7,–,;,.,.,;,:,7,C,$,N,?,>,>,>,:,!,N,O,Q,H,O,Q,N,M,H,$,$,7,;,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,;,H,C,:,;,;,7,H,M,M,M,H,N,C,:,7,?,:,:,M,N,Q,$,O,?,N,M,Q,H,Q,O,O,:,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,$,$,?,7,Q,N,$,?,O,C,C,N,?,:,–,?,?,–,N,?,!,!,>,!,O,M,M,Q,O,O,O,O,;,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,>,N,H,N,M,$,?,>,–,–,:,H,?,:,;,>,:,–,Q,O,–,.,;,;,>,M,$,7,!,:,:,>,7,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,;,H,$,H,N,C,:,;,;,.,–,M,O,–,;,!,;,–,H,O,:,.,:,!,:,H,C,:,.,.,–,7,O,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,:,O,Q,$,7,–,.,:,:,–,N,>,–,;,:,;,;,Q,C,:,.,:,:,–,H,$,!,.,.,;,!,$,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,–,N,H,O,>,–,.,!,–,:,H,7,.,.,!,;,;,H,C,>,.,–,:,;,Q,O,>,.,.,.,–,Q,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,!,H,N,C,>,;,.,–,;,!,Q,C,;,;,!,;,;,Q,O,7,.,–,;,.,O,$,>,;,.,.,.,Q,:,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,:,C,H,O,>,;,.,;,;,7,$,7,;,.,–,.,;,Q,O,?,;,;,.,.,C,Q,7,–,.,.,–,O,O,;,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,O,Q,C,7,;,.,.,.,?,O,>,;,.,;,.,.,$,O,?,–,.,.,.,7,Q,7,:,.,.,–,?,H,!,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,C,Q,C,7,–,.,.,.,O,$,7,;,.,.,.,.,O,O,?,–,.,.,.,!,H,?,C,:,.,–,!,Q,?,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,O,$,?,7,:,.,.,.,$,Q,7,–,;,;,;,.,O,Q,?,:,;,.,.,;,H,?,7,>,.,:,!,$,7,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,C,H,C,7,!,.,;,.,$,$,>,:,–,!,:,;,O,$,?,!,:,.,.,:,$,O,C,!,.,.,7,O,7,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,!,M,C,?,!,.,–,;,>,Q,7,–,;,:,>,–,$,$,C,!,–,.,.,;,7,C,?,!,.,:,7,Q,>,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,;,H,C,?,:,.,–,.,:,$,7,:,–,;,–,;,>,?,?,7,–,:,;,.,!,O,?,:,.,.,!,Q,!,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,?,$,7,;,–,!,.,–,C,7,:,–,;,–,.,;,C,$,7,–,;,:,.,;,>,7,;,.,.,–,H,;,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,:,O,:,;,;,!,;,!,7,>,:,;,;,!,.,.,7,H,?,;,.,!,–,:,–,!,.,.,.,!,7,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,C,7,7,;,:,:,>,7,7,–,.,;,!,–,;,7,O,>,;,.,;,.,.,;,>,;,.,;,?,;,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,;,O,?,!,:,:,>,>,>,;,;,.,:,–,.,–,7,!,;,.,.,.,.,:,?,!,>,C,–,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,–,O,!,;,;,>,>,–,.,;,.,.,;,.,.,:,–,>,.,.,.,–,?,7,:,:,;,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,;,C,:,;,–,:,;,–,7,;,.,.,.,;,!,?,?,–,;,:,O,:,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,–,C,7,!,7,?,$,C,;,.,.,;,7,C,>,>,7,>,:,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,;,;,;,.,.,!,C,7,>,C,!,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,–,–,;,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,
-
-*/
-// utility function
-const $ = (id) => document.getElementById(id);
-
-// Form Handling, it does absolutely nothing but console.log() ToT
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const data = {
-    name: $("name").value,
-    email: $("email").value,
-    message: $("message").value,
-  };
-
-  // You can do anything with this data bro
-  // console.log(data);
-  this.reset();
-  $("success").textContent =
-    "Your message has been sent successfully, thank you for reaching us";
-
-  setTimeout(() => {
-    $("success").textContent = "";
-  }, 3000);
-});
-
-// Set current year in footer, always the correct year
-document.getElementById("year").textContent = new Date().getFullYear();
-=======
     scrollToTopBtn.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
@@ -276,4 +182,3 @@ document.getElementById("year").textContent = new Date().getFullYear();
     });
   }
 })();
->>>>>>> sujal
