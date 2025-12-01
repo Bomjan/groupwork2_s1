@@ -691,4 +691,19 @@ body {
     left: 20px;
     right: auto;
   }
+
+  .recent-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .recent-item .text {
+    width: 100%;
+  }
+  
+  .recent-item > div:last-child {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }

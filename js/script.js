@@ -113,6 +113,58 @@ if (contactForm) {
           window.location.href = "index.html";
         });
       }
+      // Update Mobile Menu as well
+      if (mobileMenu) {
+        const mobileSignup = mobileMenu.querySelector(".mobile-signup");
+        if (mobileSignup) {
+          mobileSignup.style.display = "none";
+        }
+        
+        // Check if we already added profile info to avoid duplicates
+        let mobileProfile = mobileMenu.querySelector(".mobile-profile-info");
+        if (!mobileProfile) {
+          const profileHtml = `
+            <div class="mobile-profile-info">
+              <div class="mobile-user-avatar">${initials}</div>
+              <div class="mobile-user-details">
+                <span class="mobile-user-name">${displayName}</span>
+                <span class="mobile-user-role">${user.role}</span>
+              </div>
+            </div>
+            ${dashboardLink.replace("profile-menu-item", "mobile-nav-link")}
+            <button id="mobileLogoutBtn" class="mobile-nav-link logout" style="border: 0; width: 100%; text-align: left; background: transparent; cursor: pointer;">
+              Logout
+            </button>
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 8px 0; width: 100%;">
+          `;
+          mobileMenu.insertAdjacentHTML("afterbegin", profileHtml);
+          
+          // Attach logout listener for mobile
+          const mobileLogoutBtn = document.getElementById("mobileLogoutBtn");
+          if (mobileLogoutBtn) {
+            mobileLogoutBtn.addEventListener("click", () => {
+              localStorage.removeItem("currentUser");
+              window.location.href = "index.html";
+            });
+          }
+        }
+      }
+    } else {
+      // User is not logged in, ensure Sign Up is visible
+      if (mobileMenu) {
+        const mobileSignup = mobileMenu.querySelector(".mobile-signup");
+        if (mobileSignup) {
+          mobileSignup.style.display = "flex";
+        }
+        const mobileProfile = mobileMenu.querySelector(".mobile-profile-info");
+        if (mobileProfile) mobileProfile.remove();
+        const mobileLogout = document.getElementById("mobileLogoutBtn");
+        if (mobileLogout) mobileLogout.remove();
+         // Also remove the dashboard link if we injected it (this is a bit tricky without a specific class, 
+         // but simpler to just reset innerHTML if we want to be clean, but that might kill event listeners.
+         // For now, let's assume a page reload happens on logout usually, but here we are doing SPA-like updates.
+         // A cleaner way is to reset the menu to default state if needed, but let's stick to this for now.)
+      }
     }
   }
 

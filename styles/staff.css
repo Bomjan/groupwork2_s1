@@ -175,7 +175,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 700px;
+  max-width: 100%;
 }
 .form-inline {
   display: flex;
@@ -216,6 +216,7 @@ h3 {
   transition: all 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
   min-height: 48px;
   font-size: 0.96rem;
+  width: 100%;
 }
 .form input:focus,
 .form textarea:focus,
@@ -489,24 +490,56 @@ button[data-action="reject"]:hover {
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px;
   }
   .sidebar {
     width: 100%;
     flex-direction: row;
-    flex-wrap: wrap;
-    position: static;
-    padding: 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    position: sticky;
+    top: 74px; /* Adjust based on header height */
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 40;
+    border-bottom: 1px solid rgba(20, 80, 50, 0.05);
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    margin: -20px -20px 0 -20px; /* Negative margin to span full width */
+    width: calc(100% + 40px);
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   }
+  
+  /* Hide scrollbar */
+  .sidebar::-webkit-scrollbar {
+    display: none;
+  }
+  .sidebar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   .nav-btn {
-    flex: 1;
-    min-width: 140px;
-    padding: 12px 12px;
+    flex: 0 0 auto;
+    min-width: auto;
+    padding: 10px 16px;
     font-size: 0.9rem;
+    white-space: nowrap;
+    border: 1px solid rgba(10, 30, 20, 0.05);
+    background: #fff;
   }
+  
+  .nav-btn.active {
+     box-shadow: 0 4px 12px rgba(26, 137, 90, 0.15);
+     border-color: transparent;
+  }
+
   .panel {
-    padding: 24px;
+    padding: 20px;
   }
   h2 {
     font-size: 1.25rem;
@@ -522,6 +555,7 @@ button[data-action="reject"]:hover {
   }
   .filters {
     flex-direction: column;
+    align-items: stretch;
     margin-bottom: 16px;
   }
   .filters select {
@@ -532,6 +566,8 @@ button[data-action="reject"]:hover {
   }
   .item-actions {
     width: 100%;
+    justify-content: flex-end;
+    margin-top: 12px;
   }
   .item-actions button {
     flex: 1;
