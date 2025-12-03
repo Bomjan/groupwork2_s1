@@ -28,8 +28,7 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar" aria-label="Main sidebar">
       <div class="brand">
-        <div class="logo" id="logo">GreenAdmin</div>
-
+        <a href="/"><div class="logo" id="logo">GreenAdmin</div> </a>
         <button
           id="sidebarToggle"
           class="hamburger"
@@ -57,7 +56,12 @@
             <span class="label">Company Data</span>
           </li>
 
-          <li class="nav-item" data-section="inventory" role="link" tabindex="0">
+          <li
+            class="nav-item"
+            data-section="inventory"
+            role="link"
+            tabindex="0"
+          >
             <i class="fa fa-boxes-stacked"></i>
             <span class="label">Inventory</span>
           </li>
@@ -269,7 +273,9 @@
         <section id="notifications" class="section">
           <div class="card-head">
             <h2>Notifications</h2>
-            <button class="btn" onclick="broadcastNotification()">+ Broadcast</button>
+            <button class="btn" onclick="broadcastNotification()">
+              + Broadcast
+            </button>
           </div>
           <div id="notificationList">
             <p class="muted">No new notifications.</p>
@@ -292,7 +298,9 @@
       <div class="modal-content" role="dialog" aria-modal="true">
         <div class="modal-header">
           <h3 id="modalTitle">Title</h3>
-          <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+          <button class="modal-close" onclick="closeModal()" aria-label="Close">
+            ×
+          </button>
         </div>
         <div class="modal-body" id="modalBody">
           <!-- Dynamic Content -->

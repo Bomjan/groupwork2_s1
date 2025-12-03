@@ -144,11 +144,11 @@ body {
   animation: slideIn 300ms ease;
 }
 @keyframes slideIn {
-  from {
+  0% {
     opacity: 0;
     transform: translateY(10px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
@@ -511,9 +511,9 @@ button[data-action="reject"]:hover {
     margin: -20px -20px 0 -20px; /* Negative margin to span full width */
     width: calc(100% + 40px);
     border-radius: 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   }
-  
+
   /* Hide scrollbar */
   .sidebar::-webkit-scrollbar {
     display: none;
@@ -532,10 +532,10 @@ button[data-action="reject"]:hover {
     border: 1px solid rgba(10, 30, 20, 0.05);
     background: #fff;
   }
-  
+
   .nav-btn.active {
-     box-shadow: 0 4px 12px rgba(26, 137, 90, 0.15);
-     border-color: transparent;
+    box-shadow: 0 4px 12px rgba(26, 137, 90, 0.15);
+    border-color: transparent;
   }
 
   .panel {

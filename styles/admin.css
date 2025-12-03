@@ -86,7 +86,7 @@ body {
   font-size: 22px; /* Slightly larger */
   letter-spacing: -0.5px;
   color: #ffffff; /* Explicitly white */
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .hamburger {
@@ -724,11 +724,11 @@ body {
     align-items: flex-start;
     gap: 12px;
   }
-  
+
   .recent-item .text {
     width: 100%;
   }
-  
+
   .recent-item > div:last-child {
     width: 100%;
     justify-content: flex-end;
@@ -932,7 +932,8 @@ body {
 }
 
 /* Toned down global hover effects */
-.card:hover, .module:hover {
+.card:hover,
+.module:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
