@@ -18,7 +18,7 @@
   const userDepartment = currentUser.department || "General";
 
   // set page title
-  document.title = `${userName}'s Profile - InnovateGreen AI`;
+  document.title = `${userName}'s Profile`;
 
   // populate UI
   document.getElementById("userName").textContent = userName;
@@ -74,17 +74,18 @@
       e.preventDefault();
       const current = document.getElementById("currentPass").value;
       const newP = document.getElementById("newPass").value;
-      
+
       if (!current || !newP) return alert("Please fill all fields");
-      if (current !== currentUser.password) return alert("Incorrect current password");
-      
+      if (current !== currentUser.password)
+        return alert("Incorrect current password");
+
       // Update local storage
       currentUser.password = newP;
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
-      
+
       // Also update the user in the 'users' array if we were simulating a real DB
       // For now, just updating the session user is enough for the demo
-      
+
       alert("Password updated successfully!");
       passForm.reset();
       passForm.classList.add("hidden");
@@ -100,8 +101,14 @@
     }
 
     resignBtn.addEventListener("click", () => {
-      if (confirm("Are you sure you want to resign? This action cannot be undone.")) {
-        alert("Resignation request submitted to HR. We are sorry to see you go.");
+      if (
+        confirm(
+          "Are you sure you want to resign? This action cannot be undone."
+        )
+      ) {
+        alert(
+          "Resignation request submitted to HR. We are sorry to see you go."
+        );
         // In a real app, this would send a request to the server
       }
     });
