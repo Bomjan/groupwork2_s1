@@ -114,25 +114,51 @@
     });
   });
 
+  // --- NAVIGATION LOGIC ---
+  function switchSection(sectionId) {
+      // Update Sidebar
+      navItems.forEach(n => {
+          if(n.dataset.section === sectionId) n.classList.add('active');
+          else n.classList.remove('active');
+      });
+
+      // Update Title
+      const activeNav = navItems.find(n => n.dataset.section === sectionId);
+      if(activeNav && pageTitle) {
+          pageTitle.textContent = activeNav.querySelector(".label")?.textContent || sectionId;
+      }
+
+      // Hide all sections
+      document.querySelectorAll('main .section').forEach(sec => {
+        sec.classList.add('hidden');
+      });
+
+      // Show target section
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.classList.remove('hidden');
+        
+        // Overview specific logic
+        if(sectionId === 'overview') {
+            document.getElementById('shortcuts').classList.remove('hidden');
+            document.getElementById('hr').classList.remove('hidden');
+        } else {
+            document.getElementById('shortcuts').classList.add('hidden');
+            document.getElementById('hr').classList.add('hidden');
+        }
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+  }
+
   // nav interaction: click & keyboard
   navItems.forEach((el) => {
-    function activate() {
-      navItems.forEach((n) => n.classList.remove("active"));
-      el.classList.add("active");
-      const section = el.dataset.section;
-      const label = el.querySelector(".label")?.textContent || section;
-      if (pageTitle) pageTitle.textContent = label;
-      // smooth scroll if target exists
-      const target = document.getElementById(section);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-    el.addEventListener("click", activate);
+    el.addEventListener("click", () => switchSection(el.dataset.section));
     el.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        activate();
+        switchSection(el.dataset.section);
       }
     });
   });
@@ -156,25 +182,25 @@
   // Shortcuts and pending items
   const shortcuts = [
     {
-      id: "pub",
+      id: "notifications", // Changed ID to match section ID
       title: "New Publication",
       desc: "Create a news or policy item",
       icon: "fa-newspaper",
     },
     {
-      id: "inv",
+      id: "inventory", // Matches section ID
       title: "Inventory",
       desc: "Track assets & stock",
       icon: "fa-boxes-stacked",
     },
     {
-      id: "task",
+      id: "task", // Special case: opens modal
       title: "Assign Task",
       desc: "Create staff tasks",
       icon: "fa-tasks",
     },
     {
-      id: "leave",
+      id: "hr", // Matches section ID (Leaves are in HR section)
       title: "Leaves",
       desc: "Review leave applications",
       icon: "fa-calendar-check",
@@ -262,9 +288,35 @@
     const openBtn = e.target.closest(".open-shortcut");
     if (openBtn) {
       const id = openBtn.dataset.id;
-      showToast(`Opening ${id}...`);
+      
+      // Special case for Task Assignment Modal
+      if (id === 'task') {
+        openModal('Assign Task', [
+            { id: 'taskTitle', label: 'Task Title', placeholder: 'e.g. Update Homepage' },
+            { id: 'taskType', label: 'Type', placeholder: 'Task / Tour / Meeting' },
+            { id: 'taskDate', label: 'Due Date', type: 'date' }
+        ], (data) => {
+            if (!data.taskTitle) return showToast('Title is required');
+            const tasks = JSON.parse(localStorage.getItem('ig_tasks_v1')) || [];
+            tasks.push({
+                id: Date.now(),
+                title: data.taskTitle,
+                type: data.taskType || 'Task',
+                date: data.taskDate || new Date().toISOString().split('T')[0],
+                status: 'Pending'
+            });
+            localStorage.setItem('ig_tasks_v1', JSON.stringify(tasks));
+            closeModal();
+            showToast('Task assigned');
+        });
+        return;
+      }
+
+      // Default: Switch Section
+      switchSection(id);
       return;
     }
+    
     const approve = e.target.closest(".approve");
     if (approve) {
       const id = Number(approve.dataset.id);
@@ -320,4 +372,170 @@
       setTimeout(() => toast.remove(), 260);
     }, time);
   }
+  // --- NEW FUNCTIONALITIES ---
+
+  // Data
+  let inventory = JSON.parse(localStorage.getItem('ig_inventory')) || [];
+  let notifications = JSON.parse(localStorage.getItem('ig_notifications_v1')) || [];
+  
+  // Modal System
+  const modal = document.getElementById('adminModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+  const modalConfirmBtn = document.getElementById('modalConfirmBtn');
+  let currentModalCallback = null;
+
+  window.closeModal = function() {
+    if(!modal) return;
+    modal.classList.remove('show');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+    }, 200);
+  };
+
+  function openModal(title, fields, callback) {
+    if(!modal) return;
+    modalTitle.textContent = title;
+    modalBody.innerHTML = fields.map(f => `
+        <div class="modal-group">
+            <label class="modal-label">${f.label}</label>
+            <input class="modal-input" type="${f.type || 'text'}" id="${f.id}" placeholder="${f.placeholder || ''}" value="${f.value || ''}">
+        </div>
+    `).join('');
+    
+    currentModalCallback = callback;
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => modal.classList.add('show'));
+    
+    // Focus first input
+    setTimeout(() => {
+        const firstInput = modalBody.querySelector('input');
+        if(firstInput) firstInput.focus();
+    }, 100);
+  }
+
+  if(modalConfirmBtn) {
+      modalConfirmBtn.onclick = () => {
+        if (currentModalCallback) {
+            const inputs = modalBody.querySelectorAll('input');
+            const data = {};
+            inputs.forEach(input => data[input.id] = input.value);
+            currentModalCallback(data);
+        }
+      };
+  }
+
+  // Inventory
+  window.addInventoryItem = function() {
+    openModal('Add Inventory Item', [
+        { id: 'invName', label: 'Item Name', placeholder: 'e.g. Office Chairs' },
+        { id: 'invCat', label: 'Category', placeholder: 'e.g. Furniture' },
+        { id: 'invQty', label: 'Quantity', type: 'number', placeholder: '0' }
+    ], (data) => {
+        if (!data.invName) return showToast('Name is required');
+        inventory.push({
+            id: Date.now(),
+            name: data.invName,
+            category: data.invCat || 'General',
+            qty: Number(data.invQty) || 0,
+            status: (Number(data.invQty) || 0) < 10 ? 'Low Stock' : 'In Stock'
+        });
+        saveInventory();
+        renderInventory();
+        closeModal();
+        showToast('Item added');
+    });
+  };
+
+  function saveInventory() {
+    localStorage.setItem('ig_inventory', JSON.stringify(inventory));
+  }
+
+  function renderInventory() {
+    const tbody = document.getElementById('inventoryList');
+    if (!tbody) return;
+    if (inventory.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px">No items found</td></tr>';
+        return;
+    }
+    tbody.innerHTML = inventory.map(item => `
+        <tr>
+            <td><strong>${item.name}</strong></td>
+            <td>${item.category}</td>
+            <td>${item.qty}</td>
+            <td><span class="badge ${item.status === 'Low Stock' ? 'yellow' : 'green'}">${item.status}</span></td>
+            <td>
+                <button class="btn small" style="background:#ef4444;box-shadow:none" onclick="deleteInventory(${item.id})">Delete</button>
+            </td>
+        </tr>
+    `).join('');
+  }
+  
+  window.deleteInventory = function(id) {
+     // Direct delete as per "no prompt" preference
+     inventory = inventory.filter(i => i.id !== id);
+     saveInventory();
+     renderInventory();
+     showToast('Item deleted');
+  };
+
+  // Notifications
+  window.broadcastNotification = function() {
+    openModal('Broadcast Notification', [
+        { id: 'notifMsg', label: 'Message', placeholder: 'Enter notification message' }
+    ], (data) => {
+        if (!data.notifMsg) return showToast('Message is required');
+        notifications.unshift({
+            id: Date.now(),
+            text: data.notifMsg,
+            time: new Date().toISOString()
+        });
+        saveNotifications();
+        renderNotifications();
+        closeModal();
+        showToast('Notification sent');
+    });
+  };
+
+  function saveNotifications() {
+    localStorage.setItem('ig_notifications_v1', JSON.stringify(notifications));
+  }
+
+  function renderNotifications() {
+    const list = document.getElementById('notificationList');
+    if (!list) return;
+    if (notifications.length === 0) {
+        list.innerHTML = '<p class="muted">No new notifications.</p>';
+        return;
+    }
+    list.innerHTML = notifications.map(n => `
+        <div class="recent-item">
+            <div class="dot blue"></div>
+            <div class="text">
+                <strong>System Broadcast</strong>
+                <span class="muted">${n.text}</span>
+            </div>
+            <div class="time">
+                ${new Date(n.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+            </div>
+            <button class="delete-notif" onclick="deleteNotification(${n.id})" title="Delete">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    `).join('');
+  }
+
+  window.deleteNotification = function(id) {
+    notifications = notifications.filter(n => n.id !== id);
+    saveNotifications();
+    renderNotifications();
+    showToast('Notification removed');
+  };
+
+  // Init
+  renderInventory();
+  renderNotifications();
+
 })();

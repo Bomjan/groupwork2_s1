@@ -184,7 +184,7 @@
         <section id="inventory" class="section hidden">
           <div class="card-head">
             <h2>Inventory Management</h2>
-            <button class="btn-primary" onclick="addInventoryItem()">+ Add Item</button>
+            <button class="btn" onclick="addInventoryItem()">+ Add Item</button>
           </div>
           <div class="card-body">
             <table class="table">
@@ -267,8 +267,13 @@
 
         <!-- NOTIFICATIONS -->
         <section id="notifications" class="section">
-          <h2>Notifications</h2>
-          <p class="muted">No new notifications.</p>
+          <div class="card-head">
+            <h2>Notifications</h2>
+            <button class="btn" onclick="broadcastNotification()">+ Broadcast</button>
+          </div>
+          <div id="notificationList">
+            <p class="muted">No new notifications.</p>
+          </div>
         </section>
 
         <!-- SETTINGS -->
@@ -281,6 +286,23 @@
 
     <!-- Toast Container -->
     <div id="toast-container" aria-live="polite"></div>
+
+    <!-- Generic Modal -->
+    <div id="adminModal" class="modal-backdrop" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true">
+        <div class="modal-header">
+          <h3 id="modalTitle">Title</h3>
+          <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- Dynamic Content -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" onclick="closeModal()">Cancel</button>
+          <button class="btn" id="modalConfirmBtn">Confirm</button>
+        </div>
+      </div>
+    </div>
 
     <!-- Main JS -->
     <script src="../js/admin.js"></script>
